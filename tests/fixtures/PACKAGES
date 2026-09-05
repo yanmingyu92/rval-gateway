@@ -1,0 +1,17 @@
+Package: dplyr
+Version: 1.1.4
+NeedsCompilation: yes
+
+Package: glue
+Version: 1.7.0
+NeedsCompilation: yes
+
+Package: xfun
+Version: 0.56
+NeedsCompilation: no
+
+Package: shiny
+Version: 1.9.1
+Depends: R (>= 3.0.2)
+Imports: methods, utils, grDevices, httpuv (>= 1.5.2)
+

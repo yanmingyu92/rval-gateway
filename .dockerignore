@@ -1,0 +1,12 @@
+.git
+.gitignore
+data/
+internal_reference/
+tests/regression/data/
+tests/regression/runs/
+**/__pycache__/
+**/*.pyc
+.pytest_cache/
+*.tar.gz
+docs/
+evaluation/

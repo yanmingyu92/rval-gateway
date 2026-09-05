@@ -1,0 +1,485 @@
+{
+  "id": "digest",
+  "package": "digest",
+  "version": "0.6.37",
+  "tier": "exploratory",
+  "score": {
+    "overall_score": 0.377,
+    "metric_scores": {
+      "has_news": 0,
+      "remote_checks": null,
+      "news_current": 0,
+      "exported_namespace": 0.6225,
+      "has_vignettes": 1,
+      "export_help": 0,
+      "has_website": 1,
+      "has_maintainer": 1,
+      "bugs_status": 1,
+      "size_codebase": 0.1611,
+      "has_source_control": 1,
+      "has_bug_reports_url": 1,
+      "downloads_1yr": 0.99,
+      "reverse_dependencies": 1,
+      "has_examples": 1,
+      "dependencies": 0.8176,
+      "license": null
+    },
+    "metric_raw": {
+      "has_news": "0",
+      "remote_checks": null,
+      "news_current": null,
+      "exported_namespace": null,
+      "has_vignettes": "3",
+      "export_help": "FALSE",
+      "has_website": null,
+      "has_maintainer": "Dirk Eddelbuettel <edd@debian.org>",
+      "bugs_status": null,
+      "size_codebase": "781",
+      "has_source_control": "https://github.com/eddelbuettel/digest",
+      "has_bug_reports_url": "1",
+      "downloads_1yr": "14778037",
+      "reverse_dependencies": null,
+      "has_examples": null,
+      "dependencies": null,
+      "license": "GPL (>= 2)"
+    },
+    "excluded_metrics": [
+      "assess_covr_coverage",
+      "assess_r_cmd_check"
+    ],
+    "security_note": "code-executing metrics excluded; assessed package code was not executed",
+    "r_version": "R version 4.6.0 (2026-04-24 ucrt)",
+    "riskmetric_version": "0.2.7",
+    "assessed_at": "2026-09-02T22:21:40Z",
+    "json_path": "score.json"
+  },
+  "evidence": {
+    "package": "digest",
+    "version": "0.6.37",
+    "collection_mode": "network",
+    "collected_at": "2026-09-02T22:21:41Z",
+    "network_sources_ok": 3,
+    "network_sources_failed": [],
+    "entries": [
+      {
+        "evidence_id": "EV-001",
+        "metric": "description.package",
+        "value": "digest",
+        "source": "local tarball DESCRIPTION (digest_0.6.37.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:40Z"
+      },
+      {
+        "evidence_id": "EV-002",
+        "metric": "description.version",
+        "value": "0.6.37",
+        "source": "local tarball DESCRIPTION (digest_0.6.37.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:40Z"
+      },
+      {
+        "evidence_id": "EV-003",
+        "metric": "description.title",
+        "value": "Create Compact Hash Digests of R Objects",
+        "source": "local tarball DESCRIPTION (digest_0.6.37.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:40Z"
+      },
+      {
+        "evidence_id": "EV-004",
+        "metric": "description.license",
+        "value": "GPL (>= 2)",
+        "source": "local tarball DESCRIPTION (digest_0.6.37.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:40Z"
+      },
+      {
+        "evidence_id": "EV-005",
+        "metric": "description.maintainer",
+        "value": "Dirk Eddelbuettel <edd@debian.org>",
+        "source": "local tarball DESCRIPTION (digest_0.6.37.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:40Z"
+      },
+      {
+        "evidence_id": "EV-006",
+        "metric": "description.url",
+        "value": "https://github.com/eddelbuettel/digest, https://dirk.eddelbuettel.com/code/digest.html",
+        "source": "local tarball DESCRIPTION (digest_0.6.37.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:40Z"
+      },
+      {
+        "evidence_id": "EV-007",
+        "metric": "description.bug_reports",
+        "value": "https://github.com/eddelbuettel/digest/issues",
+        "source": "local tarball DESCRIPTION (digest_0.6.37.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:40Z"
+      },
+      {
+        "evidence_id": "EV-008",
+        "metric": "tarball.sha256",
+        "value": "82c4d149994b8a4a9af930f5a8e47420829935abed41f3f9030e94b6a48f0321",
+        "source": "local sha256 of digest_0.6.37.tar.gz",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:40Z",
+        "unit": "sha256 hex"
+      },
+      {
+        "evidence_id": "EV-009",
+        "metric": "ingest.origin",
+        "value": "cran",
+        "source": "gateway ingest provenance",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:40Z"
+      },
+      {
+        "evidence_id": "EV-010",
+        "metric": "ingest.source_url",
+        "value": "https://cran.r-project.org/src/contrib/Archive/digest/digest_0.6.37.tar.gz",
+        "source": "gateway ingest provenance",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:40Z"
+      },
+      {
+        "evidence_id": "EV-011",
+        "metric": "cran.version",
+        "value": "0.6.39",
+        "source": "https://crandb.r-pkg.org/digest",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:40Z"
+      },
+      {
+        "evidence_id": "EV-012",
+        "metric": "cran.title",
+        "value": "Create Compact Hash Digests of R Objects",
+        "source": "https://crandb.r-pkg.org/digest",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:40Z"
+      },
+      {
+        "evidence_id": "EV-013",
+        "metric": "cran.publication_date",
+        "value": "2025-11-19",
+        "source": "https://crandb.r-pkg.org/digest",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:40Z",
+        "note": "Date field of the current CRAN release."
+      },
+      {
+        "evidence_id": "EV-014",
+        "metric": "cran.maintainer",
+        "value": "Dirk Eddelbuettel <edd@debian.org>",
+        "source": "https://crandb.r-pkg.org/digest",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:40Z"
+      },
+      {
+        "evidence_id": "EV-015",
+        "metric": "cran.license",
+        "value": "GPL (>= 2)",
+        "source": "https://crandb.r-pkg.org/digest",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:40Z"
+      },
+      {
+        "evidence_id": "EV-016",
+        "metric": "cran.url",
+        "value": "https://github.com/eddelbuettel/digest,\nhttps://eddelbuettel.github.io/digest/,\nhttps://dirk.eddelbuettel.com/code/digest.html",
+        "source": "https://crandb.r-pkg.org/digest",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:40Z"
+      },
+      {
+        "evidence_id": "EV-017",
+        "metric": "cran.imports_count",
+        "value": 1,
+        "source": "https://crandb.r-pkg.org/digest",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:40Z",
+        "unit": "packages"
+      },
+      {
+        "evidence_id": "EV-018",
+        "metric": "downloads.last_month_total",
+        "value": 1060799,
+        "source": "https://cranlogs.r-pkg.org/downloads/total/last-month/digest",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:40Z",
+        "unit": "downloads",
+        "note": "window 2026-08-03..2026-09-01 (posit CRAN mirror logs)"
+      },
+      {
+        "evidence_id": "EV-019",
+        "metric": "github.repo",
+        "value": "eddelbuettel/digest",
+        "source": "https://api.github.com/repos/eddelbuettel/digest",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:41Z"
+      },
+      {
+        "evidence_id": "EV-020",
+        "metric": "github.stars",
+        "value": 122,
+        "source": "https://api.github.com/repos/eddelbuettel/digest",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "unit": "stars"
+      },
+      {
+        "evidence_id": "EV-021",
+        "metric": "github.forks",
+        "value": 50,
+        "source": "https://api.github.com/repos/eddelbuettel/digest",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "unit": "forks"
+      },
+      {
+        "evidence_id": "EV-022",
+        "metric": "github.open_issues",
+        "value": 6,
+        "source": "https://api.github.com/repos/eddelbuettel/digest",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "unit": "issues"
+      },
+      {
+        "evidence_id": "EV-023",
+        "metric": "github.last_push",
+        "value": "2026-08-21T11:31:45Z",
+        "source": "https://api.github.com/repos/eddelbuettel/digest",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "note": "last push to default branch (UTC)"
+      },
+      {
+        "evidence_id": "EV-024",
+        "metric": "riskmetric.overall_score",
+        "value": 0.377,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "note": "summarize_scores weighted mean, 0=low risk 1=high"
+      },
+      {
+        "evidence_id": "EV-025",
+        "metric": "riskmetric.score.bugs_status",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-026",
+        "metric": "riskmetric.score.dependencies",
+        "value": 0.8176,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-027",
+        "metric": "riskmetric.score.downloads_1yr",
+        "value": 0.99,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-028",
+        "metric": "riskmetric.score.export_help",
+        "value": 0,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-029",
+        "metric": "riskmetric.score.exported_namespace",
+        "value": 0.6225,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-030",
+        "metric": "riskmetric.score.has_bug_reports_url",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-031",
+        "metric": "riskmetric.score.has_examples",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-032",
+        "metric": "riskmetric.score.has_maintainer",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-033",
+        "metric": "riskmetric.score.has_news",
+        "value": 0,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-034",
+        "metric": "riskmetric.score.has_source_control",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-035",
+        "metric": "riskmetric.score.has_vignettes",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-036",
+        "metric": "riskmetric.score.has_website",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-037",
+        "metric": "riskmetric.score.news_current",
+        "value": 0,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-038",
+        "metric": "riskmetric.score.reverse_dependencies",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-039",
+        "metric": "riskmetric.score.size_codebase",
+        "value": 0.1611,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-040",
+        "metric": "riskmetric.raw.downloads_1yr",
+        "value": "14778037",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z"
+      },
+      {
+        "evidence_id": "EV-041",
+        "metric": "riskmetric.raw.export_help",
+        "value": "FALSE",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z"
+      },
+      {
+        "evidence_id": "EV-042",
+        "metric": "riskmetric.raw.has_bug_reports_url",
+        "value": "1",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z"
+      },
+      {
+        "evidence_id": "EV-043",
+        "metric": "riskmetric.raw.has_maintainer",
+        "value": "Dirk Eddelbuettel <edd@debian.org>",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z"
+      },
+      {
+        "evidence_id": "EV-044",
+        "metric": "riskmetric.raw.has_news",
+        "value": "0",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z"
+      },
+      {
+        "evidence_id": "EV-045",
+        "metric": "riskmetric.raw.has_source_control",
+        "value": "https://github.com/eddelbuettel/digest",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z"
+      },
+      {
+        "evidence_id": "EV-046",
+        "metric": "riskmetric.raw.has_vignettes",
+        "value": "3",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z"
+      },
+      {
+        "evidence_id": "EV-047",
+        "metric": "riskmetric.raw.license",
+        "value": "GPL (>= 2)",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z"
+      },
+      {
+        "evidence_id": "EV-048",
+        "metric": "riskmetric.raw.size_codebase",
+        "value": "781",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z"
+      },
+      {
+        "evidence_id": "EV-049",
+        "metric": "riskmetric.excluded_metrics",
+        "value": "assess_covr_coverage, assess_r_cmd_check",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:41Z",
+        "note": "code-executing metrics disabled by policy; assessed package code was not executed"
+      }
+    ]
+  },
+  "cached_at": "2026-09-02T22:21:41Z"
+}

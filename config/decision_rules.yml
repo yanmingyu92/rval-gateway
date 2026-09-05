@@ -1,0 +1,154 @@
+# Decision rules for the R Package Validation Gateway (Phase 2 prototype).
+#
+# Model adopted from {riskassessment}'s db-config pattern (score-range rules
+# per decision category + per-metric rules), extended with intended-use tiers.
+# Every rule evaluation (fired or not, with inputs and thresholds) is shown in
+# the report — no black-box verdicts.
+#
+# Threshold rationale (two-tier strategy):
+#   Tier 1 (this tool) is a screening gate; Tier 2 is full vendor-style
+#   qualification triggered on NO-GO or on gxp-critical use. Thresholds are
+#   deliberately conservative for GxP tiers: riskmetric scores are 0 (low
+#   risk) .. 1 (high risk); exploratory work tolerates medium risk, while
+#   gxp-support demands a clearly low-risk profile and gxp-critical can never
+#   auto-GO at all (human sign-off gate per the risk-based QC framework:
+#   metrics inform a qualified human's assessment; no composite number is a
+#   proof of correctness).
+#
+# config_version follows semver; bump on any rule/threshold change. The
+# gateway records config_version + sha256 of this file in every decision
+# output and audit record.
+
+config_version: "1.1.0"
+
+tiers:
+  # exploratory: research / non-GxP. GO below `low`; GO-WITH-CONDITIONS below
+  # `high`; NO-GO otherwise. Fired metric-rule conditions are attached to any
+  # non-GO outcome.
+  exploratory:
+    low: 0.30    # clearly low-risk profile
+    high: 0.60   # tolerable with conditions; above this is out even for exploration
+  # gxp-support: package output feeds GxP workflows but is not itself the
+  # record of truth. Stricter band; any fired critical metric rule forces at
+  # least GO-WITH-CONDITIONS; above `high` -> NO-GO (escalate to Tier 2).
+  gxp-support:
+    low: 0.20
+    high: 0.40
+  # gxp-critical: package is on the critical path of a regulated decision.
+  # NEVER auto-GO: best possible outcome is GO-WITH-CONDITIONS with the
+  # mandatory human-gate conditions below; at/above `high` -> NO-GO ->
+  # escalate to Tier 2 full validation.
+  gxp-critical:
+    low: null    # unused: GO is not reachable in this tier
+    high: 0.30
+
+# Mandatory conditions attached to ANY non-NO-GO outcome in gxp-critical
+# (the human gate). Independent verification / double programming per the
+# QC framework.
+critical_tier_conditions:
+  - "Independent verification by a qualified reviewer before use (human gate; this tool never signs off)."
+  - "Double programming or equivalent independent check of package outputs that feed the regulated decision."
+
+# Per-metric expression rules. `metric` names an evidence-register metric
+# (riskmetric.score.* or a deterministic collector metric). `op` is one of:
+# <, <=, >, >=, ==, is_na, not_na. severity `warn` contributes a condition;
+# severity `critical` additionally forces at least GO-WITH-CONDITIONS in
+# gxp-support (and adds its condition in every tier).
+#
+# Two rules deliberately key on deterministic collector evidence instead of
+# the riskmetric subscore:
+#  - low_downloads: riskmetric 0.2.7's downloads_1yr scoring function is
+#    monotone-INCREASING in download count (1 - 1.5/(x/1e5 + 1.5)), i.e.
+#    popular packages score "high risk" — verified upstream quirk, unusable
+#    as a low-usage signal. cranlogs last-month totals are used instead.
+#  - no_source_control: pkg_source refs (extracted tarballs) cannot see the
+#    upstream repository, so has_source_control is unreliable on our refs.
+#    The deterministic github.repo evidence (DESCRIPTION URL / BugReports /
+#    ingest origin) is used instead.
+metric_rules:
+  - id: news_missing
+    metric: riskmetric.score.news_current
+    op: ">"
+    value: 0.5
+    severity: warn
+    condition: "NEWS not current — pin the assessed version and re-check on update."
+  - id: news_not_measurable
+    metric: riskmetric.score.news_current
+    op: is_na
+    severity: warn
+    condition: "NEWS currency not measurable — confirm change history manually before relying on the package."
+  - id: low_downloads
+    metric: downloads.last_month_total
+    op: "<"
+    value: 1000
+    severity: warn
+    condition: "Low community usage (cranlogs last month) — extra scrutiny justified; consider a usage review or additional testing."
+  - id: bugs_mostly_open
+    metric: riskmetric.score.bugs_status
+    op: ">"
+    value: 0.5
+    severity: critical
+    condition: "Majority of recent issues unresolved — review the bug tracker before use."
+  - id: no_source_control
+    metric: github.repo
+    op: is_na
+    severity: critical
+    condition: "No public source-control repository found — archive the pinned tarball as the controlled source."
+  - id: exports_undocumented
+    metric: riskmetric.score.export_help
+    op: ">"
+    value: 0.5
+    severity: warn
+    condition: "Exported functions lack documentation — require documentation review for functions in scope."
+  - id: license_risk
+    metric: riskmetric.score.license
+    op: ">"
+    value: 0.0
+    severity: critical
+    condition: "License flagged non-standard by riskmetric — route to legal/license review."
+  - id: heavy_dependencies
+    metric: riskmetric.score.dependencies
+    op: ">"
+    value: 0.5
+    severity: warn
+    condition: "Large dependency footprint — each dependency needs its own screening decision."
+
+# Category subscores (display-only, Phase C report upgrade). The riskmetric
+# metrics are mapped into four buckets; each category subscore is the
+# equal-weighted mean of its members' non-null metric scores (0 = low risk,
+# 1 = high risk; a category with no measurable member scores reports null).
+# `weight` discloses the rubric's relative importance of each category in
+# the assessment strategy (vendor-report Appendix style). These subscores
+# are NOT inputs to the overall score or the decision: overall_score remains
+# riskmetric's summarize_scores weighted mean and the tier thresholds above
+# are unchanged.
+category_weights:
+  code:
+    weight: 0.50
+    metrics:
+      - dependencies
+      - exported_namespace
+      - remote_checks
+      - size_codebase
+  documentation:
+    weight: 0.15
+    metrics:
+      - export_help
+      - has_examples
+      - has_news
+      - has_vignettes
+      - has_website
+      - license
+      - news_current
+  maintenance:
+    weight: 0.20
+    metrics:
+      - bugs_status
+      - has_bug_reports_url
+      - has_maintainer
+      - has_source_control
+  popularity:
+    weight: 0.15
+    metrics:
+      - downloads_1yr
+      - reverse_dependencies

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Validation Report — jsonlite 2.0.0</title>
+<style>
+  /* Self-contained on purpose: this file is the archived record (served via
+     /runs/ and printable), so it inlines its own copy of the shared design
+     tokens instead of linking the gated /static/ assets. */
+  :root {
+    --kg-bg: #f4f3f0;
+    --kg-surface: #ffffff;
+    --kg-surface-2: #edecea;
+    --kg-border: #d8d5d0;
+    --kg-cream: #2d2926;
+    --kg-cream-muted: #6b6560;
+    --kg-accent: #8B002E;
+    --kg-accent-lt: #C4004A;
+    --kg-wine: #310410;
+    --kg-success: #1a7a3a;
+    --kg-warn: #c87000;
+    --kg-danger: #b91c1c;
+    --kg-shadow-soft: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.03);
+    --kg-font-display: Georgia, 'Times New Roman', serif;
+    --kg-font-body: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: var(--kg-font-body); margin: 0; background: var(--kg-bg);
+         color: var(--kg-cream); line-height: 1.5; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 2em 2em 4em; }
+
+  /* cover header */
+  .cover { background: var(--kg-surface); border: 1px solid var(--kg-border);
+           border-radius: 16px; box-shadow: var(--kg-shadow-soft);
+           padding: 1.6em 2em; margin-bottom: 1.4em; }
+  .cover .kicker { font-size: .8em; text-transform: uppercase;
+                   letter-spacing: .06em; color: var(--kg-cream-muted); }
+  .cover h1 { font-family: var(--kg-font-display); font-size: 1.7em;
+              color: var(--kg-wine); margin: .2em 0 .4em; }
+  .decision-banner { display: inline-block; padding: 10px 22px;
+                     border-radius: 999px; font-weight: 700; font-size: 1.1em;
+                     margin: .2em 0; }
+  .go { background: #e3f3e7; border: 2px solid var(--kg-success); color: #14532d; }
+  .conditions { background: #fdf1d7; border: 2px solid var(--kg-warn); color: #6b4d00; }
+  .nogo { background: #fbe3e3; border: 2px solid var(--kg-danger); color: #7f0000; }
+  .score-line { font-size: 1.02em; margin-top: .4em; }
+  .idtable th { width: 220px; }
+
+  /* TOC */
+  .toc { background: var(--kg-surface); border: 1px solid var(--kg-border);
+         border-radius: 12px; padding: .8em 1.4em; font-size: .9em;
+         margin-bottom: 1.6em; }
+  .toc a { color: var(--kg-accent-lt); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .toc ol { margin: .3em 0; padding-left: 1.4em; columns: 2; }
+
+  section { background: var(--kg-surface); border: 1px solid var(--kg-border);
+            border-radius: 16px; box-shadow: var(--kg-shadow-soft);
+            padding: 1.2em 1.8em; margin-bottom: 1.2em;
+            scroll-margin-top: 1em; }
+  h2 { font-family: var(--kg-font-display); font-size: 1.2em;
+       color: var(--kg-accent); margin: 0 0 .6em; }
+
+  table { border-collapse: collapse; width: 100%; font-size: .86em;
+          margin: .5em 0; }
+  th, td { border-bottom: 1px solid var(--kg-border); padding: 6px 10px;
+           text-align: left; vertical-align: top; word-break: break-word; }
+  th { background: var(--kg-surface-2); font-size: .92em; }
+  tbody tr:nth-child(even) { background: var(--kg-bg); }
+
+  .pending { background: var(--kg-surface-2); border: 1px dashed var(--kg-cream-muted);
+             padding: 8px 12px; border-radius: 8px; font-style: italic;
+             margin: .4em 0; }
+  .suppressed { color: #8a6d00; font-style: italic; }
+  .evid { font-family: Consolas, 'Courier New', monospace; font-size: .85em;
+          color: var(--kg-cream-muted); }
+  code { background: var(--kg-surface-2); padding: 0 4px; border-radius: 4px; }
+  a { color: var(--kg-accent-lt); }
+
+  .footer { font-size: .8em; color: var(--kg-cream-muted);
+            border-top: 1px solid var(--kg-border);
+            margin-top: 2em; padding-top: .8em; }
+
+  @media print {
+    body { background: #fff; }
+    .wrap { max-width: none; padding: 0; }
+    .cover, section, .toc { box-shadow: none; border: 1px solid #999;
+                            border-radius: 6px; break-inside: avoid-page; }
+    .toc { display: none; }
+    h2 { break-after: avoid; }
+    table, tr, td, th { break-inside: avoid; }
+    a { color: inherit; text-decoration: none; }
+    .decision-banner { border-width: 2px; }
+    @page { margin: 2cm 1.6cm; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="cover">
+  <div class="kicker">R Package Validation Report — Tier-1 Screening</div>
+  <h1>jsonlite 2.0.0</h1>
+  <div class="decision-banner conditions">GO-WITH-CONDITIONS</div>
+  <div class="score-line">Overall risk score <strong>0.2829</strong>
+  (0 = low risk, 1 = high) EV-022</div>
+
+  <table class="idtable">
+    <tr><th>Package</th><td>jsonlite</td></tr>
+    <tr><th>Version</th><td>2.0.0 EV-002</td></tr>
+    <tr><th>Origin</th><td>cran EV-009</td></tr>
+    <tr><th>Source URL</th><td>https://cran.r-project.org/src/contrib/jsonlite_2.0.0.tar.gz</td></tr>
+    <tr><th>Tarball sha256</th><td class="evid">75eb910c82b350ec33f094779da0f87bff154c232e4ae39c9896a9b89f3ac82d EV-008</td></tr>
+    <tr><th>Intended-use tier</th><td>gxp-support</td></tr>
+    <tr><th>Report generated (UTC)</th><td>2026-09-05T19:53:19Z</td></tr>
+  </table>
+</div>
+
+<nav class="toc">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#decision">Decision</a></li>
+    <li><a href="#conditions">Conditions</a></li>
+    <li><a href="#metrics">Per-Metric Breakdown</a></li>
+    <li><a href="#strategy">Scoring Strategy &amp; Subscores</a></li>
+    <li><a href="#cran">CRAN Metadata</a></li>
+    <li><a href="#community">Community &amp; Repository Signals</a></li>
+    <li><a href="#classification">Classification &amp; Sign-off</a></li>
+    <li><a href="#evidence">Evidence Register</a></li>
+    <li><a href="#system">Annex: System Information</a></li>
+    <li><a href="#timeline">Approval Timeline</a></li>
+  </ol>
+</nav>
+
+<section id="decision">
+<h2>Decision</h2>
+<p>Config: version <code>1.1.0</code>, sha256 <code class="evid">531ab81389ab28ca59dc74ef1eaf45d71cc33fd026d1a122eebd12a8c92dea9e</code>.
+Every rule evaluated for this verdict, fired or not, with its inputs:</p>
+<table><tr><th>Rule</th><th>Metric</th><th>Input</th><th>Condition (op threshold)</th><th>Fired?</th><th>Severity</th></tr>
+<tr><td><code>overall_score_threshold</code></td><td>riskmetric.overall_score</td><td>0.2829</td><td>score &lt; low (0.2) → GO; &lt; high (0.4) → conditions</td><td><strong>FIRED</strong></td><td>—</td></tr>
+<tr><td><code>news_missing</code></td><td>riskmetric.score.news_current</td><td>1</td><td>&gt; 0.5000</td><td><strong>FIRED</strong></td><td>warn</td></tr>
+<tr><td><code>news_not_measurable</code></td><td>riskmetric.score.news_current</td><td>1</td><td>is_na</td><td><strong>no</strong></td><td>warn</td></tr>
+<tr><td><code>low_downloads</code></td><td>downloads.last_month_total</td><td>1620938</td><td>&lt; 1000</td><td><strong>no</strong></td><td>warn</td></tr>
+<tr><td><code>bugs_mostly_open</code></td><td>riskmetric.score.bugs_status</td><td>0.7667</td><td>&gt; 0.5000</td><td><strong>FIRED</strong></td><td>critical</td></tr>
+<tr><td><code>no_source_control</code></td><td>github.repo</td><td>jeroen/jsonlite</td><td>is_na</td><td><strong>no</strong></td><td>critical</td></tr>
+<tr><td><code>exports_undocumented</code></td><td>riskmetric.score.export_help</td><td>1</td><td>&gt; 0.5000</td><td><strong>FIRED</strong></td><td>warn</td></tr>
+<tr><td><code>license_risk</code></td><td>riskmetric.score.license</td><td>(no input)</td><td>&gt; 0.0000</td><td><strong>no</strong></td><td>critical</td></tr>
+<tr><td><code>heavy_dependencies</code></td><td>riskmetric.score.dependencies</td><td>0.8176</td><td>&gt; 0.5000</td><td><strong>FIRED</strong></td><td>warn</td></tr>
+</table>
+</section>
+
+<section id="conditions">
+<h2>Conditions</h2>
+<ul>
+<li>NEWS not current — pin the assessed version and re-check on update.</li>
+<li>Majority of recent issues unresolved — review the bug tracker before use.</li>
+<li>Exported functions lack documentation — require documentation review for functions in scope.</li>
+<li>Large dependency footprint — each dependency needs its own screening decision.</li>
+</ul>
+</section>
+
+<section id="metrics">
+<h2>Per-Metric Breakdown ({riskmetric})</h2>
+<table><tr><th>Metric</th><th>Risk (0–1)</th><th>Raw value</th><th>Evidence</th></tr>
+<tr><td>bugs_status</td><td>0.7667</td><td>—</td><td class='evid'>EV-023</td></tr>
+<tr><td>dependencies</td><td>0.8176</td><td>—</td><td class='evid'>EV-024</td></tr>
+<tr><td>downloads_1yr</td><td>0.9920</td><td>18506916</td><td class='evid'>EV-025</td></tr>
+<tr><td>export_help</td><td>1</td><td>—</td><td class='evid'>EV-026</td></tr>
+<tr><td>exported_namespace</td><td>0.5128</td><td>—</td><td class='evid'>EV-027</td></tr>
+<tr><td>has_bug_reports_url</td><td>1</td><td>1</td><td class='evid'>EV-028</td></tr>
+<tr><td>has_examples</td><td>1</td><td>—</td><td class='evid'>EV-029</td></tr>
+<tr><td>has_maintainer</td><td>1</td><td>Jeroen Ooms &lt;jeroenooms@gmail.com&gt;</td><td class='evid'>EV-030</td></tr>
+<tr><td>has_news</td><td>1</td><td>1</td><td class='evid'>EV-031</td></tr>
+<tr><td>has_source_control</td><td>0</td><td>—</td><td class='evid'>EV-032</td></tr>
+<tr><td>has_vignettes</td><td>1</td><td>18</td><td class='evid'>EV-033</td></tr>
+<tr><td>has_website</td><td>1</td><td>https://jeroen.r-universe.dev/jsonlite https://arxiv.org/abs/1403.2805</td><td class='evid'>EV-034</td></tr>
+<tr><td>news_current</td><td>1</td><td>TRUE</td><td class='evid'>EV-035</td></tr>
+<tr><td>reverse_dependencies</td><td>1</td><td>—</td><td class='evid'>EV-036</td></tr>
+<tr><td>size_codebase</td><td>0.1020</td><td>1320</td><td class='evid'>EV-037</td></tr>
+</table>
+</section>
+
+<section id="strategy">
+<h2>Scoring Strategy &amp; Category Subscores</h2>
+<table><tr><th>Category</th><th>Weight</th><th>Subscore (0–1 risk)</th><th>Metrics scored</th></tr>
+<tr><td><strong>code</strong></td><td>0.5000</td><td>0.4775</td><td>3 of 4</td></tr>
+<tr><td><strong>documentation</strong></td><td>0.1500</td><td>1.0000</td><td>6 of 7</td></tr>
+<tr><td><strong>maintenance</strong></td><td>0.2000</td><td>0.6917</td><td>4 of 4</td></tr>
+<tr><td><strong>popularity</strong></td><td>0.1500</td><td>0.9960</td><td>2 of 2</td></tr>
+</table>
+<p>Rubric: each category subscore is the equal-weighted mean of its member metrics' non-null riskmetric scores (0 = low risk, 1 = high risk); category weights disclose the relative importance of each category in the assessment strategy. Category subscores are display-only — the overall score and the decision thresholds are unchanged. Metric membership and per-metric evidence:</p>
+<p><strong>code</strong> (weight 0.5000)</p><ul><li><code>dependencies</code>: 0.8176 [EV-024]</li><li><code>exported_namespace</code>: 0.5128 [EV-027]</li><li><code>remote_checks</code>: NA</li><li><code>size_codebase</code>: 0.1020 [EV-037]</li></ul>
+<p><strong>documentation</strong> (weight 0.1500)</p><ul><li><code>export_help</code>: 1 [EV-026]</li><li><code>has_examples</code>: 1 [EV-029]</li><li><code>has_news</code>: 1 [EV-031]</li><li><code>has_vignettes</code>: 1 [EV-033]</li><li><code>has_website</code>: 1 [EV-034]</li><li><code>license</code>: NA</li><li><code>news_current</code>: 1 [EV-035]</li></ul>
+<p><strong>maintenance</strong> (weight 0.2000)</p><ul><li><code>bugs_status</code>: 0.7667 [EV-023]</li><li><code>has_bug_reports_url</code>: 1 [EV-028]</li><li><code>has_maintainer</code>: 1 [EV-030]</li><li><code>has_source_control</code>: 0 [EV-032]</li></ul>
+<p><strong>popularity</strong> (weight 0.1500)</p><ul><li><code>downloads_1yr</code>: 0.9920 [EV-025]</li><li><code>reverse_dependencies</code>: 1 [EV-036]</li></ul>
+</section>
+
+<section id="cran">
+<h2>CRAN Metadata</h2>
+<table><tr><th>Field</th><th>Value</th><th>Evidence</th></tr>
+<tr><td>cran.version</td><td>2.0.0</td><td class='evid'>EV-011</td></tr>
+<tr><td>cran.title</td><td>A Simple and Robust JSON Parser and Generator for R</td><td class='evid'>EV-012</td></tr>
+<tr><td>cran.maintainer</td><td>Jeroen Ooms &lt;jeroenooms@gmail.com&gt;</td><td class='evid'>EV-013</td></tr>
+<tr><td>cran.license</td><td>MIT + file LICENSE</td><td class='evid'>EV-014</td></tr>
+<tr><td>cran.url</td><td>https://jeroen.r-universe.dev/jsonlite https://arxiv.org/abs/1403.2805</td><td class='evid'>EV-015</td></tr>
+</table>
+</section>
+
+<section id="community">
+<h2>Community &amp; Repository Signals</h2>
+<table><tr><th>Field</th><th>Value</th><th>Evidence</th></tr>
+<tr><td>downloads.last_month_total</td><td>1620938</td><td class='evid'>EV-016</td></tr>
+<tr><td>github.repo</td><td>jeroen/jsonlite</td><td class='evid'>EV-017</td></tr>
+<tr><td>github.stars</td><td>403</td><td class='evid'>EV-018</td></tr>
+<tr><td>github.forks</td><td>45</td><td class='evid'>EV-019</td></tr>
+<tr><td>github.open_issues</td><td>122</td><td class='evid'>EV-020</td></tr>
+<tr><td>github.last_push</td><td>2026-09-03T13:26:51Z</td><td class='evid'>EV-021</td></tr>
+</table>
+</section>
+
+<section id="classification">
+<h2>Classification &amp; Sign-off</h2>
+<p><em>Not classified — no intended use or justification was recorded for this assessment.</em></p>
+<div class="pending">Risk classification: PENDING HUMAN REVIEW — this tool does not classify.</div>
+<div class="pending">Sign-off: PENDING HUMAN REVIEW — machine-generated screening output; human QA sign-off pending. This tool never signs.</div>
+</section>
+
+<section id="evidence">
+<h2>Evidence Register</h2>
+<p>Hard rule: no statement above is made without an evidence ID; sections whose
+required evidence is missing render "[NO EVIDENCE - SECTION SUPPRESSED]".</p>
+<table><tr><th>ID</th><th>Metric</th><th>Value</th><th>Mode</th><th>Source</th><th>Collected at</th></tr>
+<tr><td class='evid'>EV-001</td><td>description.package</td><td>jsonlite</td><td>local</td><td>local tarball DESCRIPTION (jsonlite_2.0.0.tar.gz)</td><td>2026-09-05T19:47:13Z</td></tr>
+<tr><td class='evid'>EV-002</td><td>description.version</td><td>2.0.0</td><td>local</td><td>local tarball DESCRIPTION (jsonlite_2.0.0.tar.gz)</td><td>2026-09-05T19:47:13Z</td></tr>
+<tr><td class='evid'>EV-003</td><td>description.title</td><td>A Simple and Robust JSON Parser and Generator for R</td><td>local</td><td>local tarball DESCRIPTION (jsonlite_2.0.0.tar.gz)</td><td>2026-09-05T19:47:13Z</td></tr>
+<tr><td class='evid'>EV-004</td><td>description.license</td><td>MIT + file LICENSE</td><td>local</td><td>local tarball DESCRIPTION (jsonlite_2.0.0.tar.gz)</td><td>2026-09-05T19:47:13Z</td></tr>
+<tr><td class='evid'>EV-005</td><td>description.maintainer</td><td>Jeroen Ooms &lt;jeroenooms@gmail.com&gt;</td><td>local</td><td>local tarball DESCRIPTION (jsonlite_2.0.0.tar.gz)</td><td>2026-09-05T19:47:13Z</td></tr>
+<tr><td class='evid'>EV-006</td><td>description.url</td><td>https://jeroen.r-universe.dev/jsonlite https://arxiv.org/abs/1403.2805</td><td>local</td><td>local tarball DESCRIPTION (jsonlite_2.0.0.tar.gz)</td><td>2026-09-05T19:47:13Z</td></tr>
+<tr><td class='evid'>EV-007</td><td>description.bug_reports</td><td>https://github.com/jeroen/jsonlite/issues</td><td>local</td><td>local tarball DESCRIPTION (jsonlite_2.0.0.tar.gz)</td><td>2026-09-05T19:47:13Z</td></tr>
+<tr><td class='evid'>EV-008</td><td>tarball.sha256</td><td>75eb910c82b350ec33f094779da0f87bff154c232e4ae39c9896a9b89f3ac82d</td><td>local</td><td>local sha256 of jsonlite_2.0.0.tar.gz</td><td>2026-09-05T19:47:13Z</td></tr>
+<tr><td class='evid'>EV-009</td><td>ingest.origin</td><td>cran</td><td>local</td><td>gateway ingest provenance</td><td>2026-09-05T19:47:13Z</td></tr>
+<tr><td class='evid'>EV-010</td><td>ingest.source_url</td><td>https://cran.r-project.org/src/contrib/jsonlite_2.0.0.tar.gz</td><td>local</td><td>gateway ingest provenance</td><td>2026-09-05T19:47:13Z</td></tr>
+<tr><td class='evid'>EV-011</td><td>cran.version</td><td>2.0.0</td><td>network</td><td>https://crandb.r-pkg.org/jsonlite</td><td>2026-09-05T19:47:13Z</td></tr>
+<tr><td class='evid'>EV-012</td><td>cran.title</td><td>A Simple and Robust JSON Parser and Generator for R</td><td>network</td><td>https://crandb.r-pkg.org/jsonlite</td><td>2026-09-05T19:47:13Z</td></tr>
+<tr><td class='evid'>EV-013</td><td>cran.maintainer</td><td>Jeroen Ooms &lt;jeroenooms@gmail.com&gt;</td><td>network</td><td>https://crandb.r-pkg.org/jsonlite</td><td>2026-09-05T19:47:13Z</td></tr>
+<tr><td class='evid'>EV-014</td><td>cran.license</td><td>MIT + file LICENSE</td><td>network</td><td>https://crandb.r-pkg.org/jsonlite</td><td>2026-09-05T19:47:13Z</td></tr>
+<tr><td class='evid'>EV-015</td><td>cran.url</td><td>https://jeroen.r-universe.dev/jsonlite https://arxiv.org/abs/1403.2805</td><td>network</td><td>https://crandb.r-pkg.org/jsonlite</td><td>2026-09-05T19:47:13Z</td></tr>
+<tr><td class='evid'>EV-016</td><td>downloads.last_month_total</td><td>1620938</td><td>network</td><td>https://cranlogs.r-pkg.org/downloads/total/last-month/jsonlite</td><td>2026-09-05T19:47:13Z</td></tr>
+<tr><td class='evid'>EV-017</td><td>github.repo</td><td>jeroen/jsonlite</td><td>network</td><td>https://api.github.com/repos/jeroen/jsonlite</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-018</td><td>github.stars</td><td>403</td><td>network</td><td>https://api.github.com/repos/jeroen/jsonlite</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-019</td><td>github.forks</td><td>45</td><td>network</td><td>https://api.github.com/repos/jeroen/jsonlite</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-020</td><td>github.open_issues</td><td>122</td><td>network</td><td>https://api.github.com/repos/jeroen/jsonlite</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-021</td><td>github.last_push</td><td>2026-09-03T13:26:51Z</td><td>network</td><td>https://api.github.com/repos/jeroen/jsonlite</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-022</td><td>riskmetric.overall_score</td><td>0.2829</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-023</td><td>riskmetric.score.bugs_status</td><td>0.7667</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-024</td><td>riskmetric.score.dependencies</td><td>0.8176</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-025</td><td>riskmetric.score.downloads_1yr</td><td>0.9920</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-026</td><td>riskmetric.score.export_help</td><td>1</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-027</td><td>riskmetric.score.exported_namespace</td><td>0.5128</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-028</td><td>riskmetric.score.has_bug_reports_url</td><td>1</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-029</td><td>riskmetric.score.has_examples</td><td>1</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-030</td><td>riskmetric.score.has_maintainer</td><td>1</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-031</td><td>riskmetric.score.has_news</td><td>1</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-032</td><td>riskmetric.score.has_source_control</td><td>0</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-033</td><td>riskmetric.score.has_vignettes</td><td>1</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-034</td><td>riskmetric.score.has_website</td><td>1</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-035</td><td>riskmetric.score.news_current</td><td>1</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-036</td><td>riskmetric.score.reverse_dependencies</td><td>1</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-037</td><td>riskmetric.score.size_codebase</td><td>0.1020</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-038</td><td>riskmetric.raw.downloads_1yr</td><td>18506916</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-039</td><td>riskmetric.raw.has_bug_reports_url</td><td>1</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-040</td><td>riskmetric.raw.has_maintainer</td><td>Jeroen Ooms &lt;jeroenooms@gmail.com&gt;</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-041</td><td>riskmetric.raw.has_news</td><td>1</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-042</td><td>riskmetric.raw.has_vignettes</td><td>18</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-043</td><td>riskmetric.raw.has_website</td><td>https://jeroen.r-universe.dev/jsonlite https://arxiv.org/abs/1403.2805</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-044</td><td>riskmetric.raw.license</td><td>MIT + file LICENSE</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-045</td><td>riskmetric.raw.news_current</td><td>TRUE</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-046</td><td>riskmetric.raw.size_codebase</td><td>1320</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+<tr><td class='evid'>EV-047</td><td>riskmetric.excluded_metrics</td><td>assess_covr_coverage, assess_r_cmd_check</td><td>riskmetric</td><td>riskmetric 0.2.7 run via gateway r_adapter (R version 4.5.3 (2026-03-11))</td><td>2026-09-05T19:47:14Z</td></tr>
+</table>
+</section>
+
+<section id="tier2">
+<h2>Tier-2 Sandbox Validation</h2>
+<p>Deep validation in a throwaway R sandbox (package code executed in
+isolation): R CMD check, the package's own test suite and test coverage,
+pinned to the recorded CRAN snapshot.</p>
+<div class="decision-banner nogo">Tier-2 deep validation: check-errors</div>
+<p><strong>Attention:</strong> the sandboxed validation did not come back clean; review the counts below and the raw artifacts before relying on this package.</p>
+<table>
+<tr><th>Sandbox status</th><td>check-errors</td></tr>
+<tr><th>Tests (passed/total)</th><td>63 / 68 (failed 4, skipped 1)</td></tr>
+<tr><th>R CMD check</th><td>errors (errors 1, warnings 1, notes 1)</td></tr>
+<tr><th>Test coverage</th><td>65.2%</td></tr>
+<tr><th>R version (sandbox)</th><td>R version 4.5.3 (2026-03-11)</td></tr>
+<tr><th>Platform (sandbox)</th><td>x86_64-pc-linux-gnu</td></tr>
+<tr><th>Sandbox image</th><td><code>rval-sandbox:0.1.0</code></td></tr>
+<tr><th>CRAN snapshot</th><td>2026-04-15</td></tr>
+<tr><th>Duration</th><td>36.32 s</td></tr>
+<tr><th>Finished at (UTC)</th><td>2026-09-05T19:52:13Z</td></tr>
+</table>
+<h4>IQ — Installation Qualification (environment and spec fingerprint)</h4><table>
+<tr><th>R version (sandbox)</th><td>R version 4.5.3 (2026-03-11)</td></tr>
+<tr><th>Platform (sandbox)</th><td>x86_64-pc-linux-gnu</td></tr>
+<tr><th>Sandbox image</th><td>rval-sandbox:0.1.0</td></tr>
+<tr><th>Spec sha256</th><td><code>c8b0888d9f9a6af7b9b3fbb3db6b1b21430b4b8e3ffb6b3233180adecece435f</code></td></tr>
+<tr><th>Spec config_version</th><td>0.1.2</td></tr>
+</table>
+<h4>OQ — Operational Qualification (requirement execution)</h4><p>Validation status: <strong class='go'>pass</strong> — cases pass 5, diff 0, fail 0, error 0.</p>
+<table><tr><th>Requirement</th><th>Risk</th><th>Linked cases</th><th>Status</th></tr>
+<tr><td><code>REQ-001</code> toJSON serializes a known R structure to the exact RFC 8259 JSON text (known-answer acceptance criterion).</td><td>high</td><td>G, M, -, 0, 0, 1</td><td><strong>pass</strong></td></tr>
+<tr><td><code>REQ-002</code> fromJSON(toJSON(x)) is the identity for numeric vectors and data frames (metamorphic roundtrip acceptance criterion).</td><td>high</td><td>MR-001, MR-002</td><td><strong>pass</strong></td></tr>
+<tr><td><code>REQ-003</code> Generated numeric vectors survive the JSON roundtrip within tolerance for arbitrary contents and lengths (property-based acceptance criterion).</td><td>medium</td><td>P, B, -, 0, 0, 1</td><td><strong>pass</strong></td></tr>
+<tr><td><code>REQ-004</code> Malformed JSON input raises an error, never crashes the process and never returns silently wrong data.</td><td>medium</td><td>F, Z, -, 0, 0, 1</td><td><strong>pass</strong></td></tr>
+</table>
+<h4>PQ — Performance Qualification (intended-use scenarios)</h4>
+<table><tr><th>Scenario</th><th>Description</th><th>Status</th></tr>
+<tr><td><code>PQ-001</code></td><td>Analysis-pipeline payloads round-trip through JSON without value drift.</td><td><strong>pass</strong></td></tr>
+</table>
+<h4>Requirement traceability matrix</h4>
+<table><tr><th>REQ</th><th>Case</th><th>Type</th><th>Result</th><th>Detail</th></tr>
+<tr><td><code>REQ-001</code></td><td><code>G</code></td><td>—</td><td><strong>untested</strong></td><td></td></tr>
+<tr><td><code>REQ-001</code></td><td><code>M</code></td><td>—</td><td><strong>untested</strong></td><td></td></tr>
+<tr><td><code>REQ-001</code></td><td><code>-</code></td><td>—</td><td><strong>untested</strong></td><td></td></tr>
+<tr><td><code>REQ-001</code></td><td><code>0</code></td><td>—</td><td><strong>untested</strong></td><td></td></tr>
+<tr><td><code>REQ-001</code></td><td><code>0</code></td><td>—</td><td><strong>untested</strong></td><td></td></tr>
+<tr><td><code>REQ-001</code></td><td><code>1</code></td><td>—</td><td><strong>untested</strong></td><td></td></tr>
+<tr><td><code>REQ-002</code></td><td><code>MR-001</code></td><td>metamorphic</td><td><strong>pass</strong></td><td>50/50 cases held (relation=roundtrip_identity, generator=gen_numeric)</td></tr>
+<tr><td><code>REQ-002</code></td><td><code>MR-002</code></td><td>metamorphic</td><td><strong>pass</strong></td><td>30/30 cases held (relation=roundtrip_identity, generator=gen_dataframe)</td></tr>
+<tr><td><code>REQ-003</code></td><td><code>P</code></td><td>—</td><td><strong>untested</strong></td><td></td></tr>
+<tr><td><code>REQ-003</code></td><td><code>B</code></td><td>—</td><td><strong>untested</strong></td><td></td></tr>
+<tr><td><code>REQ-003</code></td><td><code>-</code></td><td>—</td><td><strong>untested</strong></td><td></td></tr>
+<tr><td><code>REQ-003</code></td><td><code>0</code></td><td>—</td><td><strong>untested</strong></td><td></td></tr>
+<tr><td><code>REQ-003</code></td><td><code>0</code></td><td>—</td><td><strong>untested</strong></td><td></td></tr>
+<tr><td><code>REQ-003</code></td><td><code>1</code></td><td>—</td><td><strong>untested</strong></td><td></td></tr>
+<tr><td><code>REQ-004</code></td><td><code>F</code></td><td>—</td><td><strong>untested</strong></td><td></td></tr>
+<tr><td><code>REQ-004</code></td><td><code>Z</code></td><td>—</td><td><strong>untested</strong></td><td></td></tr>
+<tr><td><code>REQ-004</code></td><td><code>-</code></td><td>—</td><td><strong>untested</strong></td><td></td></tr>
+<tr><td><code>REQ-004</code></td><td><code>0</code></td><td>—</td><td><strong>untested</strong></td><td></td></tr>
+<tr><td><code>REQ-004</code></td><td><code>0</code></td><td>—</td><td><strong>untested</strong></td><td></td></tr>
+<tr><td><code>REQ-004</code></td><td><code>1</code></td><td>—</td><td><strong>untested</strong></td><td></td></tr>
+<tr><td>—</td><td><code>GM-001</code></td><td>golden</td><td><strong>pass</strong></td><td>identical</td></tr>
+<tr><td>—</td><td><code>PB-001</code></td><td>property</td><td><strong>pass</strong></td><td>predicate held for 50/50 seeded cases</td></tr>
+<tr><td>—</td><td><code>FZ-001</code></td><td>fuzz</td><td><strong>pass</strong></td><td>malformed: pass (graceful error); wrong_type: pass (graceful error); empty_string: pass (graceful error)</td></tr>
+</table>
+<h4>Mutation testing (defect-detection power of this suite)</h4><table><tr><th>Mutants</th><td>20 (killed 4, survived 16, timeout 0)</td></tr><tr><th>Mutation score</th><td><strong>0.20</strong></td></tr><tr><th>Operators</th><td>arith_swap, relop_swap</td></tr></table>
+<p><strong>Surviving mutants</strong> — each one is a behavior change this suite failed to detect:</p><table><tr><th>Mutant</th><th>File</th><th>Line</th><th>Operator</th></tr>
+<tr><td><code>M-001</code></td><td><code>R/collapse.R</code></td><td>25</td><td>arith_swap</td></tr>
+<tr><td><code>M-002</code></td><td><code>R/pack.R</code></td><td>117</td><td>relop_swap</td></tr>
+<tr><td><code>M-004</code></td><td><code>R/simplifyDataFrame.R</code></td><td>38</td><td>relop_swap</td></tr>
+<tr><td><code>M-006</code></td><td><code>R/unescape_unicode.R</code></td><td>8</td><td>relop_swap</td></tr>
+<tr><td><code>M-009</code></td><td><code>R/simplify.R</code></td><td>126</td><td>arith_swap</td></tr>
+<tr><td><code>M-010</code></td><td><code>R/asJSON.raw.R</code></td><td>17</td><td>relop_swap</td></tr>
+<tr><td><code>M-011</code></td><td><code>R/asJSON.complex.R</code></td><td>17</td><td>relop_swap</td></tr>
+<tr><td><code>M-012</code></td><td><code>R/asJSON.factor.R</code></td><td>6</td><td>relop_swap</td></tr>
+<tr><td><code>M-013</code></td><td><code>R/apply_by_pages.R</code></td><td>9</td><td>arith_swap</td></tr>
+<tr><td><code>M-014</code></td><td><code>R/asJSON.scalar.R</code></td><td>3</td><td>relop_swap</td></tr>
+<tr><td><code>M-015</code></td><td><code>R/asJSON.function.R</code></td><td>5</td><td>relop_swap</td></tr>
+<tr><td><code>M-016</code></td><td><code>R/asJSON.raw.R</code></td><td>14</td><td>relop_swap</td></tr>
+<tr><td><code>M-017</code></td><td><code>R/apply_by_pages.R</code></td><td>10</td><td>arith_swap</td></tr>
+<tr><td><code>M-018</code></td><td><code>R/asJSON.POSIXt.R</code></td><td>14</td><td>relop_swap</td></tr>
+<tr><td><code>M-019</code></td><td><code>R/simplifyDataFrame.R</code></td><td>68</td><td>relop_swap</td></tr>
+<tr><td><code>M-020</code></td><td><code>R/fromJSON.R</code></td><td>87</td><td>relop_swap</td></tr>
+</table>
+<p><em>automated validation verdicts are decision-support evidence and never replace qualified human review and sign-off; the mutation operator set is finite, so the mutation score is an upper-biased estimate of true defect-detection power</em></p>
+</section>
+
+<section id="system">
+<h2>Annex: System Information</h2>
+<table>
+<tr><th>Generator</th><td>rval-gateway 0.7.0 (Python stdlib)</td></tr>
+<tr><th>R version</th><td>R version 4.5.3 (2026-03-11)</td></tr>
+<tr><th>{riskmetric} version</th><td>0.2.7</td></tr>
+<tr><th>Decision config</th><td>v1.1.0, sha256 <code class='evid'>531ab81389ab28ca59dc74ef1eaf45d71cc33fd026d1a122eebd12a8c92dea9e</code> (<code>config/decision_rules.yml</code>)</td></tr>
+<tr><th>Evidence collection mode</th><td>network</td></tr>
+<tr><th>Evidence collected at (UTC)</th><td>2026-09-05T19:47:14Z</td></tr>
+<tr><th>Assessment scored at (UTC)</th><td>2026-09-05T19:47:13Z</td></tr>
+<tr><th>Report generated at (UTC)</th><td>2026-09-05T19:53:19Z</td></tr>
+</table>
+<p>Source summary: local collectors (tarball DESCRIPTION, sha256, ingest provenance) always ran; riskmetric merge ran; network sources succeeded: 3, failed: 0.</p>
+</section>
+
+<section id="timeline">
+<h2>Approval Timeline</h2>
+<p>Audit-chain events for this package (assessment → electronic signature →
+repository publish), in chain order; the record column shows the sha256
+record-hash prefix of each tamper-evident audit record.</p>
+<table><tr><th>Event</th><th>Actor</th><th>Timestamp (UTC)</th><th>Detail</th><th>Record</th></tr>
+<tr><td><strong>assessment</strong></td><td>dev-mode</td><td>2026-09-05T19:47:14Z</td><td>GO-WITH-CONDITIONS (tier gxp-support, score 0.2829)</td><td class='evid'>663a6897511c…</td></tr>
+<tr><td><strong>tier2</strong></td><td>dev-mode</td><td>2026-09-05T19:48:13Z</td><td>tier2 check-errors — tests 63/68, coverage 65.2%, check errors — validation spec present, approval pending — smoke mode; validation section suppressed</td><td class='evid'>404a7330d65b…</td></tr>
+<tr><td><strong>esign</strong></td><td>qa.reviewer</td><td>2026-09-05T19:51:34Z</td><td>signed &#x27;approved&#x27; for jsonlite spec v0.1.2</td><td class='evid'>1ae4fe5e71ce…</td></tr>
+<tr><td><strong>tier2_validation</strong></td><td>qa.reviewer</td><td>2026-09-05T19:53:19Z</td><td>tier2 validation pass (req 4/4, mutation 0.2)</td><td class='evid'>835495ec3032…</td></tr>
+</table>
+</section>
+
+<div class="footer">
+  <p><strong>Provenance.</strong> Generator: rval-gateway 0.7.0 (Python stdlib).
+  Scores computed by an R subprocess: R version 4.5.3 (2026-03-11), {riskmetric} 0.2.7
+  (two-process pattern; code-executing metrics excluded — assessed package code was not executed).
+  Decision config: <code>config/decision_rules.yml</code> v1.1.0 (sha256 531ab81389ab28ca59dc74ef1eaf45d71cc33fd026d1a122eebd12a8c92dea9e).
+  Evidence collection mode: network. Report generated at 2026-09-05T19:53:19Z (UTC).
+  </p>
+  <p>This is Tier-1 screening output under a two-tier strategy: a NO-GO or a
+  gxp-critical outcome escalates to Tier 2 full validation. Nothing here is a
+  proof of correctness; metrics inform a qualified human's assessment.</p>
+</div>
+
+</div>
+</body>
+</html>

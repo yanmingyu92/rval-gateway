@@ -1,0 +1,121 @@
+{
+  "decision": "GO-WITH-CONDITIONS",
+  "tier": "gxp-support",
+  "overall_score": 0.2104,
+  "rules_evaluated": [
+    {
+      "id": "overall_score_threshold",
+      "metric": "riskmetric.overall_score",
+      "tier": "gxp-support",
+      "input": 0.2104,
+      "low_threshold": 0.2,
+      "high_threshold": 0.4,
+      "fired": true,
+      "note": "score-range rule per tier band"
+    },
+    {
+      "id": "news_missing",
+      "metric": "riskmetric.score.news_current",
+      "op": ">",
+      "threshold": 0.5,
+      "input": 1,
+      "applicable": true,
+      "fired": true,
+      "severity": "warn",
+      "condition": "NEWS not current — pin the assessed version and re-check on update."
+    },
+    {
+      "id": "news_not_measurable",
+      "metric": "riskmetric.score.news_current",
+      "op": "is_na",
+      "threshold": null,
+      "input": 1,
+      "applicable": true,
+      "fired": false,
+      "severity": "warn",
+      "condition": "NEWS currency not measurable — confirm change history manually before relying on the package."
+    },
+    {
+      "id": "low_downloads",
+      "metric": "downloads.last_month_total",
+      "op": "<",
+      "threshold": 1000,
+      "input": 1715537,
+      "applicable": true,
+      "fired": false,
+      "severity": "warn",
+      "condition": "Low community usage (cranlogs last month) — extra scrutiny justified; consider a usage review or additional testing."
+    },
+    {
+      "id": "bugs_mostly_open",
+      "metric": "riskmetric.score.bugs_status",
+      "op": ">",
+      "threshold": 0.5,
+      "input": 0.8667,
+      "applicable": true,
+      "fired": true,
+      "severity": "critical",
+      "condition": "Majority of recent issues unresolved — review the bug tracker before use."
+    },
+    {
+      "id": "no_source_control",
+      "metric": "github.repo",
+      "op": "is_na",
+      "threshold": null,
+      "input": "tidyverse/glue",
+      "applicable": true,
+      "fired": false,
+      "severity": "critical",
+      "condition": "No public source-control repository found — archive the pinned tarball as the controlled source."
+    },
+    {
+      "id": "exports_undocumented",
+      "metric": "riskmetric.score.export_help",
+      "op": ">",
+      "threshold": 0.5,
+      "input": 1,
+      "applicable": true,
+      "fired": true,
+      "severity": "warn",
+      "condition": "Exported functions lack documentation — require documentation review for functions in scope."
+    },
+    {
+      "id": "license_risk",
+      "metric": "riskmetric.score.license",
+      "op": ">",
+      "threshold": 0.0,
+      "input": null,
+      "applicable": false,
+      "fired": false,
+      "severity": "critical",
+      "condition": "License flagged non-standard by riskmetric — route to legal/license review."
+    },
+    {
+      "id": "heavy_dependencies",
+      "metric": "riskmetric.score.dependencies",
+      "op": ">",
+      "threshold": 0.5,
+      "input": 0.8176,
+      "applicable": true,
+      "fired": true,
+      "severity": "warn",
+      "condition": "Large dependency footprint — each dependency needs its own screening decision."
+    }
+  ],
+  "fired_rules": [
+    "news_missing",
+    "bugs_mostly_open",
+    "exports_undocumented",
+    "heavy_dependencies"
+  ],
+  "conditions": [
+    "NEWS not current — pin the assessed version and re-check on update.",
+    "Majority of recent issues unresolved — review the bug tracker before use.",
+    "Exported functions lack documentation — require documentation review for functions in scope.",
+    "Large dependency footprint — each dependency needs its own screening decision."
+  ],
+  "config_version": "1.1.0",
+  "config_sha256": "4ae212e568b1c6e68225170eea0504c359f48608c9c1b32988dd7707048cbb73",
+  "config_path": "/app/config/decision_rules.yml",
+  "decided_at": "2026-09-05T19:40:03Z"
+}

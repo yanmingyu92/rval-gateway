@@ -1,0 +1,36 @@
+# R Package Validation Gateway — STANDALONE compose file (Phase 4)
+#
+# NOTE: this file runs the gateway STANDALONE on 127.0.0.1:8010.
+#
+# Deployment model: localhost-bound service behind the platform's shared
+# reverse proxy. The proxy terminates TLS and forwards a path prefix
+# (e.g. /rval-gateway/*) to http://127.0.0.1:8010/* on the host. The gateway
+# serves at the root path in-container; if the proxy preserves the prefix,
+# front it with a strip-prefix rule (the gateway's routes are / , /assess,
+# /health, /report/<run>/report.pdf).
+#
+# CAVEAT: not build/run-verified on the authoring workstation (no Docker);
+# see docs/container_verification.md.
+services:
+  gateway:
+    build: .
+    image: rval-gateway:0.3.0
+    container_name: rval-gateway
+    # localhost-only binding on the host: the container listens on 0.0.0.0
+    # (GATEWAY_HOST below) so this mapping works; the host side stays private.
+    ports:
+      - "127.0.0.1:8010:8010"
+    environment:
+      RSCRIPT: /usr/local/bin/Rscript     # rocker image path
+      GATEWAY_HOST: 0.0.0.0               # required for port mapping
+      GATEWAY_PORT: "8010"
+      # optional GitHub API token for evidence collection rate limits —
+      # supplied via the host environment, NEVER baked into the image:
+      GITHUB_TOKEN: ${GITHUB_TOKEN:-}
+    volumes:
+      # audit log + tarball pin store persist across container restarts
+      - gateway_data:/app/data
+    restart: unless-stopped
+
+volumes:
+  gateway_data:

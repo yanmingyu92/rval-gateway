@@ -1,0 +1,15 @@
+{
+  "schema": "rval-gateway platform baseline v1",
+  "comment": "Packages the platform's R image already installs (seeded from the platform r-platform Dockerfile install.packages layers, 2026-09-02). Deps in this list count as COVERED for publish-time dependency-gap reporting — they are present at runtime without a gateway publish. Keep in sync when the platform image's package set changes.",
+  "packages": [
+    "plumber", "jsonlite", "uuid", "yaml", "DBI", "odbc", "sodium",
+    "shiny", "bslib", "bsicons", "htmltools", "shinyjs", "thematic",
+    "shinycssloaders", "shinyWidgets", "shinydashboard", "DT", "plotly",
+    "haven", "dplyr", "tidyr", "purrr", "stringr", "forcats", "scales",
+    "ggplot2", "lubridate", "readxl", "memoise", "RSQLite", "digest",
+    "httr", "jose", "openssl", "survival", "gtsummary", "flextable",
+    "ggforce", "broom", "smd", "officer", "rvg", "openxlsx", "writexl",
+    "r2rtf", "knitr", "ragg", "visNetwork", "conflicted", "duckdb",
+    "mmrm", "emmeans", "RBesT", "BATSS"
+  ]
+}

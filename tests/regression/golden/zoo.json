@@ -1,0 +1,12 @@
+{
+  "id": "zoo",
+  "package": "zoo",
+  "version": "1.8-12",
+  "tier": "exploratory",
+  "score_min": 0.3448,
+  "score_max": 0.6448,
+  "observed_score": 0.4948,
+  "expected_decision": "GO-WITH-CONDITIONS",
+  "calibrated_at": "2026-09-02T22:18:40Z",
+  "config_version": "1.0.0"
+}

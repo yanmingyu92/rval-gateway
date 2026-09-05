@@ -1,0 +1,211 @@
+{
+  "spec_sha256": null,
+  "spec_config_version": "0.1.2",
+  "status": "pass",
+  "error": null,
+  "cases": [
+    {
+      "id": "GM-001",
+      "type": "golden",
+      "req": "REQ-001",
+      "status": "pass",
+      "detail": "identical",
+      "seed": null
+    },
+    {
+      "id": "MR-001",
+      "type": "metamorphic",
+      "req": "REQ-002",
+      "status": "pass",
+      "detail": "50/50 cases held (relation=roundtrip_identity, generator=gen_numeric)",
+      "seed": 42
+    },
+    {
+      "id": "MR-002",
+      "type": "metamorphic",
+      "req": "REQ-002",
+      "status": "pass",
+      "detail": "30/30 cases held (relation=roundtrip_identity, generator=gen_dataframe)",
+      "seed": 42
+    },
+    {
+      "id": "PB-001",
+      "type": "property",
+      "req": "REQ-003",
+      "status": "pass",
+      "detail": "predicate held for 50/50 seeded cases",
+      "seed": 42
+    },
+    {
+      "id": "FZ-001",
+      "type": "fuzz",
+      "req": "REQ-004",
+      "status": "pass",
+      "detail": "malformed: pass (graceful error); wrong_type: pass (graceful error); empty_string: pass (graceful error)",
+      "seed": 42
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "text": "toJSON serializes a known R structure to the exact RFC 8259 JSON text (known-answer acceptance criterion).",
+      "risk": "high",
+      "tests": "GM-001",
+      "status": "pass"
+    },
+    {
+      "id": "REQ-002",
+      "text": "fromJSON(toJSON(x)) is the identity for numeric vectors and data frames (metamorphic roundtrip acceptance criterion).",
+      "risk": "high",
+      "tests": ["MR-001", "MR-002"],
+      "status": "pass"
+    },
+    {
+      "id": "REQ-003",
+      "text": "Generated numeric vectors survive the JSON roundtrip within tolerance for arbitrary contents and lengths (property-based acceptance criterion).",
+      "risk": "medium",
+      "tests": "PB-001",
+      "status": "pass"
+    },
+    {
+      "id": "REQ-004",
+      "text": "Malformed JSON input raises an error, never crashes the process and never returns silently wrong data.",
+      "risk": "medium",
+      "tests": "FZ-001",
+      "status": "pass"
+    }
+  ],
+  "mutation": {
+    "enabled": true,
+    "operators": ["arith_swap", "relop_swap"],
+    "mutants_total": 20,
+    "killed": 4,
+    "survived": 16,
+    "timeout": 0,
+    "score": 0.2,
+    "survivors": [
+      {
+        "id": "M-001",
+        "file": "R/collapse.R",
+        "line": 25,
+        "operator": "arith_swap"
+      },
+      {
+        "id": "M-002",
+        "file": "R/pack.R",
+        "line": 117,
+        "operator": "relop_swap"
+      },
+      {
+        "id": "M-004",
+        "file": "R/simplifyDataFrame.R",
+        "line": 38,
+        "operator": "relop_swap"
+      },
+      {
+        "id": "M-006",
+        "file": "R/unescape_unicode.R",
+        "line": 8,
+        "operator": "relop_swap"
+      },
+      {
+        "id": "M-009",
+        "file": "R/simplify.R",
+        "line": 126,
+        "operator": "arith_swap"
+      },
+      {
+        "id": "M-010",
+        "file": "R/asJSON.raw.R",
+        "line": 17,
+        "operator": "relop_swap"
+      },
+      {
+        "id": "M-011",
+        "file": "R/asJSON.complex.R",
+        "line": 17,
+        "operator": "relop_swap"
+      },
+      {
+        "id": "M-012",
+        "file": "R/asJSON.factor.R",
+        "line": 6,
+        "operator": "relop_swap"
+      },
+      {
+        "id": "M-013",
+        "file": "R/apply_by_pages.R",
+        "line": 9,
+        "operator": "arith_swap"
+      },
+      {
+        "id": "M-014",
+        "file": "R/asJSON.scalar.R",
+        "line": 3,
+        "operator": "relop_swap"
+      },
+      {
+        "id": "M-015",
+        "file": "R/asJSON.function.R",
+        "line": 5,
+        "operator": "relop_swap"
+      },
+      {
+        "id": "M-016",
+        "file": "R/asJSON.raw.R",
+        "line": 14,
+        "operator": "relop_swap"
+      },
+      {
+        "id": "M-017",
+        "file": "R/apply_by_pages.R",
+        "line": 10,
+        "operator": "arith_swap"
+      },
+      {
+        "id": "M-018",
+        "file": "R/asJSON.POSIXt.R",
+        "line": 14,
+        "operator": "relop_swap"
+      },
+      {
+        "id": "M-019",
+        "file": "R/simplifyDataFrame.R",
+        "line": 68,
+        "operator": "relop_swap"
+      },
+      {
+        "id": "M-020",
+        "file": "R/fromJSON.R",
+        "line": 87,
+        "operator": "relop_swap"
+      }
+    ]
+  },
+  "oq_summary": {
+    "pass": 5,
+    "diff": 0,
+    "fail": 0,
+    "error": 0
+  },
+  "pq": [
+    {
+      "id": "PQ-001",
+      "text": "Analysis-pipeline payloads round-trip through JSON without value drift.",
+      "status": "pass"
+    }
+  ],
+  "iq": {
+    "r_version": "R version 4.5.3 (2026-03-11)",
+    "platform": "x86_64-pc-linux-gnu",
+    "packages": {
+      "jsonlite": "2.0.0",
+      "yaml": "2.3.12",
+      "hedgehog": "0.2",
+      "testthat": "3.3.2"
+    },
+    "spec_sha256": null,
+    "lib_source": "reinstalled"
+  },
+  "honesty_note": "automated validation verdicts are decision-support evidence and never replace qualified human review and sign-off; the mutation operator set is finite, so the mutation score is an upper-biased estimate of true defect-detection power"
+}

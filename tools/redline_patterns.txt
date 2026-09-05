@@ -1,0 +1,8 @@
+# redline_patterns.txt — confidentiality patterns for redline_scan.sh
+# One extended regex per line (matched case-insensitively); '#' starts a
+# comment. The shipped default guards against accidental secrets commits.
+# Add your own organization's internal identifiers in
+# redline_patterns.local.txt (never commit that file with real identifiers).
+ghp_[A-Za-z0-9]{36}
+github_pat_[A-Za-z0-9_]{22,}
+-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----

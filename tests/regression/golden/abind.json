@@ -1,0 +1,12 @@
+{
+  "id": "abind",
+  "package": "abind",
+  "version": "1.4-8",
+  "tier": "gxp-support",
+  "score_min": 0.4711,
+  "score_max": 0.7711,
+  "observed_score": 0.6211,
+  "expected_decision": "NO-GO",
+  "calibrated_at": "2026-09-02T22:18:40Z",
+  "config_version": "1.0.0"
+}

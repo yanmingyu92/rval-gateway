@@ -1,0 +1,12 @@
+{
+  "id": "crayon",
+  "package": "crayon",
+  "version": "1.5.2",
+  "tier": "gxp-support",
+  "score_min": 0.1386,
+  "score_max": 0.4386,
+  "observed_score": 0.2886,
+  "expected_decision": "GO-WITH-CONDITIONS",
+  "calibrated_at": "2026-09-02T22:18:39Z",
+  "config_version": "1.0.0"
+}

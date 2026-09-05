@@ -1,0 +1,8 @@
+data/
+internal_reference/
+tests/regression/data/
+tests/regression/runs/
+__pycache__/
+*.pyc
+.pytest_cache/
+tools/redline_patterns.local.txt

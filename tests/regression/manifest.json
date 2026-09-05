@@ -1,0 +1,107 @@
+{
+  "schema": "rval-gateway regression manifest v1",
+  "note": "Pinned public CRAN packages. Versions verified against CRAN PACKAGES index and src/contrib/Archive on 2026-09-02. Score expectations are RANGES (cranlogs-driven metrics drift between days); decisions must match exactly. Tiers are the fixture's intended-use assignments. flags=huge_deps marks the relative large-dependency case in this set (the truly huge tree case is covered by tests/test_edge_cases.py with canned evidence). Tiers for crayon/evaluate/jsonlite/prismatic/highr are gxp-support so each fixture's decision has >=0.08 margin to both band edges under known metric drift (calibration showed exploratory GO margins of 0.011-0.02 for these).",
+  "config": "config/decision_rules.yml",
+  "fixtures": [
+    {
+      "id": "abind",
+      "package": "abind",
+      "version": "1.4-8",
+      "tier": "gxp-support",
+      "flags": [
+        "current-cran"
+      ]
+    },
+    {
+      "id": "xfun",
+      "package": "xfun",
+      "version": "0.56",
+      "tier": "exploratory",
+      "flags": [
+        "archive"
+      ]
+    },
+    {
+      "id": "jsonlite",
+      "package": "jsonlite",
+      "version": "1.8.9",
+      "tier": "gxp-support",
+      "flags": [
+        "archive"
+      ]
+    },
+    {
+      "id": "zoo",
+      "package": "zoo",
+      "version": "1.8-12",
+      "tier": "exploratory",
+      "flags": [
+        "archive",
+        "huge_deps"
+      ]
+    },
+    {
+      "id": "evaluate",
+      "package": "evaluate",
+      "version": "1.0.3",
+      "tier": "gxp-support",
+      "flags": [
+        "archive"
+      ]
+    },
+    {
+      "id": "highr",
+      "package": "highr",
+      "version": "0.11",
+      "tier": "gxp-support",
+      "flags": [
+        "archive"
+      ]
+    },
+    {
+      "id": "glue",
+      "package": "glue",
+      "version": "1.7.0",
+      "tier": "exploratory",
+      "flags": [
+        "archive"
+      ]
+    },
+    {
+      "id": "digest",
+      "package": "digest",
+      "version": "0.6.37",
+      "tier": "exploratory",
+      "flags": [
+        "archive"
+      ]
+    },
+    {
+      "id": "yaml",
+      "package": "yaml",
+      "version": "2.3.10",
+      "tier": "exploratory",
+      "flags": [
+        "archive"
+      ]
+    },
+    {
+      "id": "crayon",
+      "package": "crayon",
+      "version": "1.5.2",
+      "tier": "gxp-support",
+      "flags": [
+        "archive"
+      ]
+    },
+    {
+      "id": "prismatic",
+      "package": "prismatic",
+      "version": "1.1.1",
+      "tier": "gxp-support",
+      "flags": [
+        "archive"
+      ]
+    }
+  ]
+}

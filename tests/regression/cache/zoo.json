@@ -1,0 +1,440 @@
+{
+  "id": "zoo",
+  "package": "zoo",
+  "version": "1.8-12",
+  "tier": "exploratory",
+  "score": {
+    "overall_score": 0.4948,
+    "metric_scores": {
+      "has_news": 1,
+      "remote_checks": null,
+      "news_current": 1,
+      "exported_namespace": 0.1824,
+      "has_vignettes": 1,
+      "export_help": 0,
+      "has_website": 1,
+      "has_maintainer": 1,
+      "bugs_status": null,
+      "size_codebase": 0.0439,
+      "has_source_control": 0,
+      "has_bug_reports_url": 0,
+      "downloads_1yr": 0.9838,
+      "reverse_dependencies": 1,
+      "has_examples": 1,
+      "dependencies": 0.3775,
+      "license": null
+    },
+    "metric_raw": {
+      "has_news": "1",
+      "remote_checks": null,
+      "news_current": "TRUE",
+      "exported_namespace": null,
+      "has_vignettes": "20",
+      "export_help": "FALSE",
+      "has_website": "https://zoo.R-Forge.R-project.org/",
+      "has_maintainer": "Achim Zeileis <Achim.Zeileis@R-project.org>",
+      "bugs_status": "[assessment error: unknown]",
+      "size_codebase": "3267",
+      "has_source_control": null,
+      "has_bug_reports_url": "0",
+      "downloads_1yr": "9099315",
+      "reverse_dependencies": null,
+      "has_examples": null,
+      "dependencies": null,
+      "license": "GPL-2 | GPL-3"
+    },
+    "excluded_metrics": [
+      "assess_covr_coverage",
+      "assess_r_cmd_check"
+    ],
+    "security_note": "code-executing metrics excluded; assessed package code was not executed",
+    "r_version": "R version 4.6.0 (2026-04-24 ucrt)",
+    "riskmetric_version": "0.2.7",
+    "assessed_at": "2026-09-02T22:21:24Z",
+    "json_path": "score.json"
+  },
+  "evidence": {
+    "package": "zoo",
+    "version": "1.8-12",
+    "collection_mode": "network",
+    "collected_at": "2026-09-02T22:21:24Z",
+    "network_sources_ok": 2,
+    "network_sources_failed": [],
+    "entries": [
+      {
+        "evidence_id": "EV-001",
+        "metric": "description.package",
+        "value": "zoo",
+        "source": "local tarball DESCRIPTION (zoo_1.8-12.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-002",
+        "metric": "description.version",
+        "value": "1.8-12",
+        "source": "local tarball DESCRIPTION (zoo_1.8-12.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-003",
+        "metric": "description.title",
+        "value": "S3 Infrastructure for Regular and Irregular Time Series (Z's Ordered Observations)",
+        "source": "local tarball DESCRIPTION (zoo_1.8-12.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-004",
+        "metric": "description.license",
+        "value": "GPL-2 | GPL-3",
+        "source": "local tarball DESCRIPTION (zoo_1.8-12.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-005",
+        "metric": "description.maintainer",
+        "value": "Achim Zeileis <Achim.Zeileis@R-project.org>",
+        "source": "local tarball DESCRIPTION (zoo_1.8-12.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-006",
+        "metric": "description.url",
+        "value": "https://zoo.R-Forge.R-project.org/",
+        "source": "local tarball DESCRIPTION (zoo_1.8-12.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-007",
+        "metric": "tarball.sha256",
+        "value": "e6c3862668f9e3422bced3b6fba485c76a1e91b48f5d6153822d6a61863b2fb8",
+        "source": "local sha256 of zoo_1.8-12.tar.gz",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:24Z",
+        "unit": "sha256 hex"
+      },
+      {
+        "evidence_id": "EV-008",
+        "metric": "ingest.origin",
+        "value": "cran",
+        "source": "gateway ingest provenance",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-009",
+        "metric": "ingest.source_url",
+        "value": "https://cran.r-project.org/src/contrib/Archive/zoo/zoo_1.8-12.tar.gz",
+        "source": "gateway ingest provenance",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-010",
+        "metric": "cran.version",
+        "value": "1.9-0",
+        "source": "https://crandb.r-pkg.org/zoo",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-011",
+        "metric": "cran.title",
+        "value": "S3 Infrastructure for Regular and Irregular Time Series (Z's\nOrdered Observations)",
+        "source": "https://crandb.r-pkg.org/zoo",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-012",
+        "metric": "cran.publication_date",
+        "value": "2026-07-30",
+        "source": "https://crandb.r-pkg.org/zoo",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:24Z",
+        "note": "Date field of the current CRAN release."
+      },
+      {
+        "evidence_id": "EV-013",
+        "metric": "cran.maintainer",
+        "value": "Achim Zeileis <Achim.Zeileis@R-project.org>",
+        "source": "https://crandb.r-pkg.org/zoo",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-014",
+        "metric": "cran.license",
+        "value": "GPL-2 | GPL-3",
+        "source": "https://crandb.r-pkg.org/zoo",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-015",
+        "metric": "cran.url",
+        "value": "https://zeileis.codeberg.page/zoo/",
+        "source": "https://crandb.r-pkg.org/zoo",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-016",
+        "metric": "cran.imports_count",
+        "value": 4,
+        "source": "https://crandb.r-pkg.org/zoo",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:24Z",
+        "unit": "packages"
+      },
+      {
+        "evidence_id": "EV-017",
+        "metric": "downloads.last_month_total",
+        "value": 700140,
+        "source": "https://cranlogs.r-pkg.org/downloads/total/last-month/zoo",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:24Z",
+        "unit": "downloads",
+        "note": "window 2026-08-03..2026-09-01 (posit CRAN mirror logs)"
+      },
+      {
+        "evidence_id": "EV-018",
+        "metric": "riskmetric.overall_score",
+        "value": 0.4948,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z",
+        "note": "summarize_scores weighted mean, 0=low risk 1=high"
+      },
+      {
+        "evidence_id": "EV-019",
+        "metric": "riskmetric.score.dependencies",
+        "value": 0.3775,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-020",
+        "metric": "riskmetric.score.downloads_1yr",
+        "value": 0.9838,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-021",
+        "metric": "riskmetric.score.export_help",
+        "value": 0,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-022",
+        "metric": "riskmetric.score.exported_namespace",
+        "value": 0.1824,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-023",
+        "metric": "riskmetric.score.has_bug_reports_url",
+        "value": 0,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-024",
+        "metric": "riskmetric.score.has_examples",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-025",
+        "metric": "riskmetric.score.has_maintainer",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-026",
+        "metric": "riskmetric.score.has_news",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-027",
+        "metric": "riskmetric.score.has_source_control",
+        "value": 0,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-028",
+        "metric": "riskmetric.score.has_vignettes",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-029",
+        "metric": "riskmetric.score.has_website",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-030",
+        "metric": "riskmetric.score.news_current",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-031",
+        "metric": "riskmetric.score.reverse_dependencies",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-032",
+        "metric": "riskmetric.score.size_codebase",
+        "value": 0.0439,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-033",
+        "metric": "riskmetric.raw.bugs_status",
+        "value": "[assessment error: unknown]",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-034",
+        "metric": "riskmetric.raw.downloads_1yr",
+        "value": "9099315",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-035",
+        "metric": "riskmetric.raw.export_help",
+        "value": "FALSE",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-036",
+        "metric": "riskmetric.raw.has_bug_reports_url",
+        "value": "0",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-037",
+        "metric": "riskmetric.raw.has_maintainer",
+        "value": "Achim Zeileis <Achim.Zeileis@R-project.org>",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-038",
+        "metric": "riskmetric.raw.has_news",
+        "value": "1",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-039",
+        "metric": "riskmetric.raw.has_vignettes",
+        "value": "20",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-040",
+        "metric": "riskmetric.raw.has_website",
+        "value": "https://zoo.R-Forge.R-project.org/",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-041",
+        "metric": "riskmetric.raw.license",
+        "value": "GPL-2 | GPL-3",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-042",
+        "metric": "riskmetric.raw.news_current",
+        "value": "TRUE",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-043",
+        "metric": "riskmetric.raw.size_codebase",
+        "value": "3267",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z"
+      },
+      {
+        "evidence_id": "EV-044",
+        "metric": "riskmetric.excluded_metrics",
+        "value": "assess_covr_coverage, assess_r_cmd_check",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:24Z",
+        "note": "code-executing metrics disabled by policy; assessed package code was not executed"
+      }
+    ]
+  },
+  "cached_at": "2026-09-02T22:21:25Z"
+}

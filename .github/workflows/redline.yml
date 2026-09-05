@@ -1,0 +1,16 @@
+name: redline
+
+# Confidentiality gate: scans all md/txt/html/tex content in the repo for
+# IP literals and configured red-line patterns (tools/redline_patterns.txt).
+# A single FATAL hit fails the build. Keep outbound content clean.
+on:
+  push:
+  pull_request:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Red-line confidentiality scan
+        run: bash tools/redline_scan.sh .

@@ -1,0 +1,467 @@
+{
+  "id": "jsonlite",
+  "package": "jsonlite",
+  "version": "1.8.9",
+  "tier": "gxp-support",
+  "score": {
+    "overall_score": 0.2828,
+    "metric_scores": {
+      "has_news": 1,
+      "remote_checks": null,
+      "news_current": 1,
+      "exported_namespace": 0.5128,
+      "has_vignettes": 1,
+      "export_help": 1,
+      "has_website": 1,
+      "has_maintainer": 1,
+      "bugs_status": 0.7667,
+      "size_codebase": 0.1031,
+      "has_source_control": 0,
+      "has_bug_reports_url": 1,
+      "downloads_1yr": 0.9919,
+      "reverse_dependencies": 1,
+      "has_examples": 1,
+      "dependencies": 0.8176,
+      "license": null
+    },
+    "metric_raw": {
+      "has_news": "1",
+      "remote_checks": null,
+      "news_current": "TRUE",
+      "exported_namespace": null,
+      "has_vignettes": "18",
+      "export_help": null,
+      "has_website": "https://jeroen.r-universe.dev/jsonlite\nhttps://arxiv.org/abs/1403.2805",
+      "has_maintainer": "Jeroen Ooms <jeroenooms@gmail.com>",
+      "bugs_status": null,
+      "size_codebase": "1305",
+      "has_source_control": null,
+      "has_bug_reports_url": "1",
+      "downloads_1yr": "18445680",
+      "reverse_dependencies": null,
+      "has_examples": null,
+      "dependencies": null,
+      "license": "MIT + file LICENSE"
+    },
+    "excluded_metrics": [
+      "assess_covr_coverage",
+      "assess_r_cmd_check"
+    ],
+    "security_note": "code-executing metrics excluded; assessed package code was not executed",
+    "r_version": "R version 4.6.0 (2026-04-24 ucrt)",
+    "riskmetric_version": "0.2.7",
+    "assessed_at": "2026-09-02T22:21:13Z",
+    "json_path": "score.json"
+  },
+  "evidence": {
+    "package": "jsonlite",
+    "version": "1.8.9",
+    "collection_mode": "network",
+    "collected_at": "2026-09-02T22:21:14Z",
+    "network_sources_ok": 3,
+    "network_sources_failed": [],
+    "entries": [
+      {
+        "evidence_id": "EV-001",
+        "metric": "description.package",
+        "value": "jsonlite",
+        "source": "local tarball DESCRIPTION (jsonlite_1.8.9.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:13Z"
+      },
+      {
+        "evidence_id": "EV-002",
+        "metric": "description.version",
+        "value": "1.8.9",
+        "source": "local tarball DESCRIPTION (jsonlite_1.8.9.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:13Z"
+      },
+      {
+        "evidence_id": "EV-003",
+        "metric": "description.title",
+        "value": "A Simple and Robust JSON Parser and Generator for R",
+        "source": "local tarball DESCRIPTION (jsonlite_1.8.9.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:13Z"
+      },
+      {
+        "evidence_id": "EV-004",
+        "metric": "description.license",
+        "value": "MIT + file LICENSE",
+        "source": "local tarball DESCRIPTION (jsonlite_1.8.9.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:13Z"
+      },
+      {
+        "evidence_id": "EV-005",
+        "metric": "description.maintainer",
+        "value": "Jeroen Ooms <jeroenooms@gmail.com>",
+        "source": "local tarball DESCRIPTION (jsonlite_1.8.9.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:13Z"
+      },
+      {
+        "evidence_id": "EV-006",
+        "metric": "description.url",
+        "value": "https://jeroen.r-universe.dev/jsonlite https://arxiv.org/abs/1403.2805",
+        "source": "local tarball DESCRIPTION (jsonlite_1.8.9.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:13Z"
+      },
+      {
+        "evidence_id": "EV-007",
+        "metric": "description.bug_reports",
+        "value": "https://github.com/jeroen/jsonlite/issues",
+        "source": "local tarball DESCRIPTION (jsonlite_1.8.9.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:13Z"
+      },
+      {
+        "evidence_id": "EV-008",
+        "metric": "tarball.sha256",
+        "value": "89f130e0e1163328c01decd54e7712b5ebf3d0a667da0052833722cb9a6e90b0",
+        "source": "local sha256 of jsonlite_1.8.9.tar.gz",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:13Z",
+        "unit": "sha256 hex"
+      },
+      {
+        "evidence_id": "EV-009",
+        "metric": "ingest.origin",
+        "value": "cran",
+        "source": "gateway ingest provenance",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:13Z"
+      },
+      {
+        "evidence_id": "EV-010",
+        "metric": "ingest.source_url",
+        "value": "https://cran.r-project.org/src/contrib/Archive/jsonlite/jsonlite_1.8.9.tar.gz",
+        "source": "gateway ingest provenance",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:13Z"
+      },
+      {
+        "evidence_id": "EV-011",
+        "metric": "cran.version",
+        "value": "2.0.0",
+        "source": "https://crandb.r-pkg.org/jsonlite",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:13Z"
+      },
+      {
+        "evidence_id": "EV-012",
+        "metric": "cran.title",
+        "value": "A Simple and Robust JSON Parser and Generator for R",
+        "source": "https://crandb.r-pkg.org/jsonlite",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:13Z"
+      },
+      {
+        "evidence_id": "EV-013",
+        "metric": "cran.maintainer",
+        "value": "Jeroen Ooms <jeroenooms@gmail.com>",
+        "source": "https://crandb.r-pkg.org/jsonlite",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:13Z"
+      },
+      {
+        "evidence_id": "EV-014",
+        "metric": "cran.license",
+        "value": "MIT + file LICENSE",
+        "source": "https://crandb.r-pkg.org/jsonlite",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:13Z"
+      },
+      {
+        "evidence_id": "EV-015",
+        "metric": "cran.url",
+        "value": "https://jeroen.r-universe.dev/jsonlite\nhttps://arxiv.org/abs/1403.2805",
+        "source": "https://crandb.r-pkg.org/jsonlite",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:13Z"
+      },
+      {
+        "evidence_id": "EV-016",
+        "metric": "downloads.last_month_total",
+        "value": 1598290,
+        "source": "https://cranlogs.r-pkg.org/downloads/total/last-month/jsonlite",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "unit": "downloads",
+        "note": "window 2026-08-03..2026-09-01 (posit CRAN mirror logs)"
+      },
+      {
+        "evidence_id": "EV-017",
+        "metric": "github.repo",
+        "value": "jeroen/jsonlite",
+        "source": "https://api.github.com/repos/jeroen/jsonlite",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:14Z"
+      },
+      {
+        "evidence_id": "EV-018",
+        "metric": "github.stars",
+        "value": 403,
+        "source": "https://api.github.com/repos/jeroen/jsonlite",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "unit": "stars"
+      },
+      {
+        "evidence_id": "EV-019",
+        "metric": "github.forks",
+        "value": 45,
+        "source": "https://api.github.com/repos/jeroen/jsonlite",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "unit": "forks"
+      },
+      {
+        "evidence_id": "EV-020",
+        "metric": "github.open_issues",
+        "value": 122,
+        "source": "https://api.github.com/repos/jeroen/jsonlite",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "unit": "issues"
+      },
+      {
+        "evidence_id": "EV-021",
+        "metric": "github.last_push",
+        "value": "2026-09-02T15:40:24Z",
+        "source": "https://api.github.com/repos/jeroen/jsonlite",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "note": "last push to default branch (UTC)"
+      },
+      {
+        "evidence_id": "EV-022",
+        "metric": "riskmetric.overall_score",
+        "value": 0.2828,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "note": "summarize_scores weighted mean, 0=low risk 1=high"
+      },
+      {
+        "evidence_id": "EV-023",
+        "metric": "riskmetric.score.bugs_status",
+        "value": 0.7667,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-024",
+        "metric": "riskmetric.score.dependencies",
+        "value": 0.8176,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-025",
+        "metric": "riskmetric.score.downloads_1yr",
+        "value": 0.9919,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-026",
+        "metric": "riskmetric.score.export_help",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-027",
+        "metric": "riskmetric.score.exported_namespace",
+        "value": 0.5128,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-028",
+        "metric": "riskmetric.score.has_bug_reports_url",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-029",
+        "metric": "riskmetric.score.has_examples",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-030",
+        "metric": "riskmetric.score.has_maintainer",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-031",
+        "metric": "riskmetric.score.has_news",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-032",
+        "metric": "riskmetric.score.has_source_control",
+        "value": 0,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-033",
+        "metric": "riskmetric.score.has_vignettes",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-034",
+        "metric": "riskmetric.score.has_website",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-035",
+        "metric": "riskmetric.score.news_current",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-036",
+        "metric": "riskmetric.score.reverse_dependencies",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-037",
+        "metric": "riskmetric.score.size_codebase",
+        "value": 0.1031,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-038",
+        "metric": "riskmetric.raw.downloads_1yr",
+        "value": "18445680",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z"
+      },
+      {
+        "evidence_id": "EV-039",
+        "metric": "riskmetric.raw.has_bug_reports_url",
+        "value": "1",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z"
+      },
+      {
+        "evidence_id": "EV-040",
+        "metric": "riskmetric.raw.has_maintainer",
+        "value": "Jeroen Ooms <jeroenooms@gmail.com>",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z"
+      },
+      {
+        "evidence_id": "EV-041",
+        "metric": "riskmetric.raw.has_news",
+        "value": "1",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z"
+      },
+      {
+        "evidence_id": "EV-042",
+        "metric": "riskmetric.raw.has_vignettes",
+        "value": "18",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z"
+      },
+      {
+        "evidence_id": "EV-043",
+        "metric": "riskmetric.raw.has_website",
+        "value": "https://jeroen.r-universe.dev/jsonlite\nhttps://arxiv.org/abs/1403.2805",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z"
+      },
+      {
+        "evidence_id": "EV-044",
+        "metric": "riskmetric.raw.license",
+        "value": "MIT + file LICENSE",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z"
+      },
+      {
+        "evidence_id": "EV-045",
+        "metric": "riskmetric.raw.news_current",
+        "value": "TRUE",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z"
+      },
+      {
+        "evidence_id": "EV-046",
+        "metric": "riskmetric.raw.size_codebase",
+        "value": "1305",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z"
+      },
+      {
+        "evidence_id": "EV-047",
+        "metric": "riskmetric.excluded_metrics",
+        "value": "assess_covr_coverage, assess_r_cmd_check",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:14Z",
+        "note": "code-executing metrics disabled by policy; assessed package code was not executed"
+      }
+    ]
+  },
+  "cached_at": "2026-09-02T22:21:15Z"
+}

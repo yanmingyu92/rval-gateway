@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Validation Report — {{PKG_NAME}} {{PKG_VERSION}}</title>
+<style>
+  /* Self-contained on purpose: this file is the archived record (served via
+     /runs/ and printable), so it inlines its own copy of the shared design
+     tokens instead of linking the gated /static/ assets. */
+  :root {
+    --kg-bg: #f4f3f0;
+    --kg-surface: #ffffff;
+    --kg-surface-2: #edecea;
+    --kg-border: #d8d5d0;
+    --kg-cream: #2d2926;
+    --kg-cream-muted: #6b6560;
+    --kg-accent: #8B002E;
+    --kg-accent-lt: #C4004A;
+    --kg-wine: #310410;
+    --kg-success: #1a7a3a;
+    --kg-warn: #c87000;
+    --kg-danger: #b91c1c;
+    --kg-shadow-soft: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.03);
+    --kg-font-display: Georgia, 'Times New Roman', serif;
+    --kg-font-body: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: var(--kg-font-body); margin: 0; background: var(--kg-bg);
+         color: var(--kg-cream); line-height: 1.5; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 2em 2em 4em; }
+
+  /* cover header */
+  .cover { background: var(--kg-surface); border: 1px solid var(--kg-border);
+           border-radius: 16px; box-shadow: var(--kg-shadow-soft);
+           padding: 1.6em 2em; margin-bottom: 1.4em; }
+  .cover .kicker { font-size: .8em; text-transform: uppercase;
+                   letter-spacing: .06em; color: var(--kg-cream-muted); }
+  .cover h1 { font-family: var(--kg-font-display); font-size: 1.7em;
+              color: var(--kg-wine); margin: .2em 0 .4em; }
+  .decision-banner { display: inline-block; padding: 10px 22px;
+                     border-radius: 999px; font-weight: 700; font-size: 1.1em;
+                     margin: .2em 0; }
+  .go { background: #e3f3e7; border: 2px solid var(--kg-success); color: #14532d; }
+  .conditions { background: #fdf1d7; border: 2px solid var(--kg-warn); color: #6b4d00; }
+  .nogo { background: #fbe3e3; border: 2px solid var(--kg-danger); color: #7f0000; }
+  .score-line { font-size: 1.02em; margin-top: .4em; }
+  .idtable th { width: 220px; }
+
+  /* TOC */
+  .toc { background: var(--kg-surface); border: 1px solid var(--kg-border);
+         border-radius: 12px; padding: .8em 1.4em; font-size: .9em;
+         margin-bottom: 1.6em; }
+  .toc a { color: var(--kg-accent-lt); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .toc ol { margin: .3em 0; padding-left: 1.4em; columns: 2; }
+
+  section { background: var(--kg-surface); border: 1px solid var(--kg-border);
+            border-radius: 16px; box-shadow: var(--kg-shadow-soft);
+            padding: 1.2em 1.8em; margin-bottom: 1.2em;
+            scroll-margin-top: 1em; }
+  h2 { font-family: var(--kg-font-display); font-size: 1.2em;
+       color: var(--kg-accent); margin: 0 0 .6em; }
+
+  table { border-collapse: collapse; width: 100%; font-size: .86em;
+          margin: .5em 0; }
+  th, td { border-bottom: 1px solid var(--kg-border); padding: 6px 10px;
+           text-align: left; vertical-align: top; word-break: break-word; }
+  th { background: var(--kg-surface-2); font-size: .92em; }
+  tbody tr:nth-child(even) { background: var(--kg-bg); }
+
+  .pending { background: var(--kg-surface-2); border: 1px dashed var(--kg-cream-muted);
+             padding: 8px 12px; border-radius: 8px; font-style: italic;
+             margin: .4em 0; }
+  .suppressed { color: #8a6d00; font-style: italic; }
+  .evid { font-family: Consolas, 'Courier New', monospace; font-size: .85em;
+          color: var(--kg-cream-muted); }
+  code { background: var(--kg-surface-2); padding: 0 4px; border-radius: 4px; }
+  a { color: var(--kg-accent-lt); }
+
+  .footer { font-size: .8em; color: var(--kg-cream-muted);
+            border-top: 1px solid var(--kg-border);
+            margin-top: 2em; padding-top: .8em; }
+
+  @media print {
+    body { background: #fff; }
+    .wrap { max-width: none; padding: 0; }
+    .cover, section, .toc { box-shadow: none; border: 1px solid #999;
+                            border-radius: 6px; break-inside: avoid-page; }
+    .toc { display: none; }
+    h2 { break-after: avoid; }
+    table, tr, td, th { break-inside: avoid; }
+    a { color: inherit; text-decoration: none; }
+    .decision-banner { border-width: 2px; }
+    @page { margin: 2cm 1.6cm; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="cover">
+  <div class="kicker">R Package Validation Report — Tier-1 Screening</div>
+  <h1>{{PKG_NAME}} {{PKG_VERSION}}</h1>
+  <div class="decision-banner {{DECISION_CLASS}}">{{DECISION}}</div>
+  <div class="score-line">Overall risk score <strong>{{OVERALL_SCORE}}</strong>
+  (0 = low risk, 1 = high) {{OVERALL_EV}}</div>
+
+  <table class="idtable">
+    <tr><th>Package</th><td>{{PKG_NAME}}</td></tr>
+    <tr><th>Version</th><td>{{PKG_VERSION}} {{PKG_VERSION_EV}}</td></tr>
+    <tr><th>Origin</th><td>{{ORIGIN}} {{ORIGIN_EV}}</td></tr>
+    <tr><th>Source URL</th><td>{{SOURCE_URL}}</td></tr>
+    <tr><th>Tarball sha256</th><td class="evid">{{SHA256}} {{SHA256_EV}}</td></tr>
+    <tr><th>Intended-use tier</th><td>{{TIER}}</td></tr>
+    <tr><th>Report generated (UTC)</th><td>{{GENERATED_AT}}</td></tr>
+  </table>
+</div>
+
+<nav class="toc">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#decision">Decision</a></li>
+    <li><a href="#conditions">Conditions</a></li>
+    <li><a href="#metrics">Per-Metric Breakdown</a></li>
+    <li><a href="#strategy">Scoring Strategy &amp; Subscores</a></li>
+    <li><a href="#cran">CRAN Metadata</a></li>
+    <li><a href="#community">Community &amp; Repository Signals</a></li>
+    <li><a href="#classification">Classification &amp; Sign-off</a></li>
+    <li><a href="#evidence">Evidence Register</a></li>
+    <li><a href="#system">Annex: System Information</a></li>
+    <li><a href="#timeline">Approval Timeline</a></li>
+  </ol>
+</nav>
+
+<section id="decision">
+<h2>Decision</h2>
+<p>Config: version <code>{{CONFIG_VERSION}}</code>, sha256 <code class="evid">{{CONFIG_SHA256}}</code>.
+Every rule evaluated for this verdict, fired or not, with its inputs:</p>
+{{RULES_TABLE}}
+</section>
+
+<section id="conditions">
+<h2>Conditions</h2>
+{{CONDITIONS_BLOCK}}
+</section>
+
+<section id="metrics">
+<h2>Per-Metric Breakdown ({riskmetric})</h2>
+{{METRIC_SECTION}}
+</section>
+
+<section id="strategy">
+<h2>Scoring Strategy &amp; Category Subscores</h2>
+{{SCORING_STRATEGY}}
+</section>
+
+<section id="cran">
+<h2>CRAN Metadata</h2>
+{{CRAN_SECTION}}
+</section>
+
+<section id="community">
+<h2>Community &amp; Repository Signals</h2>
+{{COMMUNITY_SECTION}}
+</section>
+
+<section id="classification">
+<h2>Classification &amp; Sign-off</h2>
+{{CLASSIFICATION_BLOCK}}
+<div class="pending">Risk classification: PENDING HUMAN REVIEW — this tool does not classify.</div>
+<div class="pending">Sign-off: PENDING HUMAN REVIEW — machine-generated screening output; human QA sign-off pending. This tool never signs.</div>
+</section>
+
+<section id="evidence">
+<h2>Evidence Register</h2>
+<p>Hard rule: no statement above is made without an evidence ID; sections whose
+required evidence is missing render "[NO EVIDENCE - SECTION SUPPRESSED]".</p>
+{{EVIDENCE_TABLE}}
+</section>
+
+<section id="system">
+<h2>Annex: System Information</h2>
+{{SYSTEM_INFO}}
+</section>
+
+<section id="timeline">
+<h2>Approval Timeline</h2>
+<p>Audit-chain events for this package (assessment → electronic signature →
+repository publish), in chain order; the record column shows the sha256
+record-hash prefix of each tamper-evident audit record.</p>
+{{TIMELINE_BLOCK}}
+</section>
+
+<div class="footer">
+  <p><strong>Provenance.</strong> Generator: rval-gateway {{TOOL_VERSION}} (Python stdlib).
+  Scores computed by an R subprocess: {{R_VERSION}}, {riskmetric} {{RISKMETRIC_VERSION}}
+  (two-process pattern; code-executing metrics excluded — assessed package code was not executed).
+  Decision config: <code>{{CONFIG_PATH}}</code> v{{CONFIG_VERSION}} (sha256 {{CONFIG_SHA256}}).
+  Evidence collection mode: {{COLLECTION_MODE}}. Report generated at {{GENERATED_AT}} (UTC).
+  {{PDF_NOTE}}</p>
+  <p>This is Tier-1 screening output under a two-tier strategy: a NO-GO or a
+  gxp-critical outcome escalates to Tier 2 full validation. Nothing here is a
+  proof of correctness; metrics inform a qualified human's assessment.</p>
+</div>
+
+</div>
+</body>
+</html>

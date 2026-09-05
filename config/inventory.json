@@ -1,0 +1,505 @@
+{
+  "schema": "rval-gateway inventory v1",
+  "snapshot": "2026-08-01",
+  "generated_at": "2026-09-03T15:55:05Z",
+  "source_counts": {
+    "baseline": 54,
+    "dockerfile": 54,
+    "code": 43
+  },
+  "packages": [
+    {
+      "name": "BATSS",
+      "version": "1.2.0",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "bayesCT",
+      "version": null,
+      "sources": [
+        "code"
+      ]
+    },
+    {
+      "name": "bayesplot",
+      "version": "1.15.0",
+      "sources": [
+        "code"
+      ]
+    },
+    {
+      "name": "brms",
+      "version": "2.23.0",
+      "sources": [
+        "code"
+      ]
+    },
+    {
+      "name": "broom",
+      "version": "1.0.13",
+      "sources": [
+        "baseline",
+        "dockerfile"
+      ]
+    },
+    {
+      "name": "bsicons",
+      "version": "0.1.2",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "bslib",
+      "version": "0.11.0",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "conflicted",
+      "version": "1.2.0",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "DBI",
+      "version": "1.3.0",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "digest",
+      "version": "0.6.39",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "dplyr",
+      "version": "1.2.1",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "DT",
+      "version": "0.34.0",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "duckdb",
+      "version": "1.5.5",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "emmeans",
+      "version": "2.0.4",
+      "sources": [
+        "baseline",
+        "dockerfile"
+      ]
+    },
+    {
+      "name": "flextable",
+      "version": "0.10.0",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "forcats",
+      "version": "1.0.1",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "ggforce",
+      "version": "0.5.0",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "ggplot2",
+      "version": "4.0.3",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "gtsummary",
+      "version": "2.5.1",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "haven",
+      "version": "2.5.5",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "htmltools",
+      "version": "0.5.9",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "httr",
+      "version": "1.4.8",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "jose",
+      "version": "2.0.0",
+      "sources": [
+        "baseline",
+        "dockerfile"
+      ]
+    },
+    {
+      "name": "jsonlite",
+      "version": "2.0.0",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "knitr",
+      "version": "1.51",
+      "sources": [
+        "baseline",
+        "dockerfile"
+      ]
+    },
+    {
+      "name": "lubridate",
+      "version": "1.9.5",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "memoise",
+      "version": "2.0.1",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "mmrm",
+      "version": "0.3.18",
+      "sources": [
+        "baseline",
+        "dockerfile"
+      ]
+    },
+    {
+      "name": "odbc",
+      "version": "1.7.0",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "officer",
+      "version": "0.7.6",
+      "sources": [
+        "baseline",
+        "dockerfile"
+      ]
+    },
+    {
+      "name": "openssl",
+      "version": "2.4.2",
+      "sources": [
+        "baseline",
+        "dockerfile"
+      ]
+    },
+    {
+      "name": "openxlsx",
+      "version": "4.2.8.1",
+      "sources": [
+        "baseline",
+        "dockerfile"
+      ]
+    },
+    {
+      "name": "plotly",
+      "version": "4.12.1",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "plumber",
+      "version": "1.3.3",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "purrr",
+      "version": "1.2.2",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "r2rtf",
+      "version": "1.3.1",
+      "sources": [
+        "baseline",
+        "dockerfile"
+      ]
+    },
+    {
+      "name": "ragg",
+      "version": "1.5.2",
+      "sources": [
+        "baseline",
+        "dockerfile"
+      ]
+    },
+    {
+      "name": "RBesT",
+      "version": "1.10-0",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "readxl",
+      "version": "1.5.0",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "RSQLite",
+      "version": "3.53.3",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "rvg",
+      "version": "0.4.2",
+      "sources": [
+        "baseline",
+        "dockerfile"
+      ]
+    },
+    {
+      "name": "scales",
+      "version": "1.4.0",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "shiny",
+      "version": "1.14.0",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "shinycssloaders",
+      "version": "1.1.0",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "shinydashboard",
+      "version": "0.7.3",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "shinyjs",
+      "version": "2.1.1",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "shinyWidgets",
+      "version": "0.9.1",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "smd",
+      "version": "0.8.0",
+      "sources": [
+        "baseline",
+        "dockerfile"
+      ]
+    },
+    {
+      "name": "sodium",
+      "version": "1.4.0",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "stringr",
+      "version": "1.6.0",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "survival",
+      "version": "3.8-9",
+      "sources": [
+        "baseline",
+        "dockerfile"
+      ]
+    },
+    {
+      "name": "thematic",
+      "version": "0.1.8",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "tidyr",
+      "version": "1.3.2",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "uuid",
+      "version": "1.2-2",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "visNetwork",
+      "version": "2.1.4",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    },
+    {
+      "name": "writexl",
+      "version": "1.5.4",
+      "sources": [
+        "baseline",
+        "dockerfile"
+      ]
+    },
+    {
+      "name": "yaml",
+      "version": "2.3.12",
+      "sources": [
+        "baseline",
+        "dockerfile",
+        "code"
+      ]
+    }
+  ]
+}

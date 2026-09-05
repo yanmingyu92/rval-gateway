@@ -1,0 +1,12 @@
+{
+  "id": "highr",
+  "package": "highr",
+  "version": "0.11",
+  "tier": "gxp-support",
+  "score_min": 0.1697,
+  "score_max": 0.4697,
+  "observed_score": 0.3197,
+  "expected_decision": "GO-WITH-CONDITIONS",
+  "calibrated_at": "2026-09-02T22:18:13Z",
+  "config_version": "1.0.0"
+}

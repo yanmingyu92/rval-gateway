@@ -1,0 +1,12 @@
+{
+  "id": "glue",
+  "package": "glue",
+  "version": "1.7.0",
+  "tier": "exploratory",
+  "score_min": 0.0649,
+  "score_max": 0.3649,
+  "observed_score": 0.2149,
+  "expected_decision": "GO",
+  "calibrated_at": "2026-09-02T22:18:40Z",
+  "config_version": "1.0.0"
+}

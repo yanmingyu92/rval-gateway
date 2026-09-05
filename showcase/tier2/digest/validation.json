@@ -1,0 +1,170 @@
+{
+  "spec_sha256": null,
+  "spec_config_version": "0.1.0",
+  "status": "pass",
+  "error": null,
+  "cases": [
+    {
+      "id": "GM-001",
+      "type": "golden",
+      "req": "REQ-001",
+      "status": "pass",
+      "detail": "identical",
+      "seed": null
+    },
+    {
+      "id": "GM-002",
+      "type": "golden",
+      "req": "REQ-001",
+      "status": "pass",
+      "detail": "identical",
+      "seed": null
+    },
+    {
+      "id": "GM-003",
+      "type": "golden",
+      "req": "REQ-001",
+      "status": "pass",
+      "detail": "identical",
+      "seed": null
+    },
+    {
+      "id": "GM-004",
+      "type": "golden",
+      "req": "REQ-001",
+      "status": "pass",
+      "detail": "identical",
+      "seed": null
+    },
+    {
+      "id": "GM-005",
+      "type": "golden",
+      "req": "REQ-001",
+      "status": "pass",
+      "detail": "identical",
+      "seed": null
+    },
+    {
+      "id": "FZ-001",
+      "type": "fuzz",
+      "req": "REQ-002",
+      "status": "pass",
+      "detail": "wrong_type: pass (graceful error); empty_string: pass (result visibly changed)",
+      "seed": 42
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "text": "MD5, SHA-1, SHA-256 and CRC-32 of known inputs reproduce the published algorithm test vectors byte-for-byte (RFC 1321 / FIPS 180-4 / ITU-T V.42 acceptance criteria).",
+      "risk": "high",
+      "tests": ["GM-001", "GM-002", "GM-003", "GM-004", "GM-005"],
+      "status": "pass"
+    },
+    {
+      "id": "REQ-002",
+      "text": "Atypical or malformed inputs degrade gracefully: an error or an empty/NA result is acceptable; a crash or a silently wrong digest is not.",
+      "risk": "medium",
+      "tests": "FZ-001",
+      "status": "pass"
+    }
+  ],
+  "mutation": {
+    "enabled": true,
+    "operators": ["const_off_by_one", "relop_swap"],
+    "mutants_total": 10,
+    "killed": 0,
+    "survived": 10,
+    "timeout": 0,
+    "score": 0,
+    "survivors": [
+      {
+        "id": "M-001",
+        "file": "R/AES.R",
+        "line": 103,
+        "operator": "const_off_by_one"
+      },
+      {
+        "id": "M-002",
+        "file": "R/digest.R",
+        "line": 77,
+        "operator": "relop_swap"
+      },
+      {
+        "id": "M-003",
+        "file": "R/sha1.R",
+        "line": 132,
+        "operator": "const_off_by_one"
+      },
+      {
+        "id": "M-004",
+        "file": "R/digest.R",
+        "line": 98,
+        "operator": "const_off_by_one"
+      },
+      {
+        "id": "M-005",
+        "file": "R/sha1.R",
+        "line": 87,
+        "operator": "const_off_by_one"
+      },
+      {
+        "id": "M-006",
+        "file": "R/sha1.R",
+        "line": 284,
+        "operator": "relop_swap"
+      },
+      {
+        "id": "M-007",
+        "file": "R/vdigest.R",
+        "line": 166,
+        "operator": "const_off_by_one"
+      },
+      {
+        "id": "M-008",
+        "file": "R/sha1.R",
+        "line": 368,
+        "operator": "relop_swap"
+      },
+      {
+        "id": "M-009",
+        "file": "R/AES.R",
+        "line": 91,
+        "operator": "const_off_by_one"
+      },
+      {
+        "id": "M-010",
+        "file": "R/AES.R",
+        "line": 44,
+        "operator": "const_off_by_one"
+      }
+    ]
+  },
+  "oq_summary": {
+    "pass": 6,
+    "diff": 0,
+    "fail": 0,
+    "error": 0
+  },
+  "pq": [
+    {
+      "id": "PQ-001",
+      "text": "Content-integrity hashing of analysis artifacts reproduces the algorithm reference vectors exactly.",
+      "status": "pass"
+    }
+  ],
+  "iq": {
+    "r_version": "R version 4.5.3 (2026-03-11)",
+    "platform": "x86_64-pc-linux-gnu",
+    "packages": {
+      "digest": "0.6.39",
+      "yaml": "2.3.12",
+      "jsonlite": "2.0.0",
+      "hedgehog": "0.2",
+      "testthat": "3.3.2"
+    },
+    "spec_sha256": null,
+    "lib_source": "reinstalled"
+  },
+  "honesty_note": "automated validation verdicts are decision-support evidence and never replace qualified human review and sign-off; the mutation operator set is finite, so the mutation score is an upper-biased estimate of true defect-detection power"
+}

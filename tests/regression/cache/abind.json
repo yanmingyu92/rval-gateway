@@ -1,0 +1,400 @@
+{
+  "id": "abind",
+  "package": "abind",
+  "version": "1.4-8",
+  "tier": "gxp-support",
+  "score": {
+    "overall_score": 0.6211,
+    "metric_scores": {
+      "has_news": 0,
+      "remote_checks": null,
+      "news_current": 0,
+      "exported_namespace": 0.6662,
+      "has_vignettes": 0,
+      "export_help": 0.8,
+      "has_website": 0,
+      "has_maintainer": 1,
+      "bugs_status": null,
+      "size_codebase": 0.26,
+      "has_source_control": 0,
+      "has_bug_reports_url": 0,
+      "downloads_1yr": 0.9838,
+      "reverse_dependencies": 0.9996,
+      "has_examples": 1,
+      "dependencies": 0.7311,
+      "license": null
+    },
+    "metric_raw": {
+      "has_news": "0",
+      "remote_checks": null,
+      "news_current": null,
+      "exported_namespace": null,
+      "has_vignettes": "0",
+      "export_help": null,
+      "has_website": null,
+      "has_maintainer": "Tony Plate <tplate@acm.org>",
+      "bugs_status": "[assessment error: unknown]",
+      "size_codebase": "427",
+      "has_source_control": null,
+      "has_bug_reports_url": "0",
+      "downloads_1yr": "9085666",
+      "reverse_dependencies": null,
+      "has_examples": null,
+      "dependencies": null,
+      "license": "MIT + file LICENSE"
+    },
+    "excluded_metrics": [
+      "assess_covr_coverage",
+      "assess_r_cmd_check"
+    ],
+    "security_note": "code-executing metrics excluded; assessed package code was not executed",
+    "r_version": "R version 4.6.0 (2026-04-24 ucrt)",
+    "riskmetric_version": "0.2.7",
+    "assessed_at": "2026-09-02T22:21:10Z",
+    "json_path": "score.json"
+  },
+  "evidence": {
+    "package": "abind",
+    "version": "1.4-8",
+    "collection_mode": "network",
+    "collected_at": "2026-09-02T22:21:10Z",
+    "network_sources_ok": 2,
+    "network_sources_failed": [],
+    "entries": [
+      {
+        "evidence_id": "EV-001",
+        "metric": "description.package",
+        "value": "abind",
+        "source": "local tarball DESCRIPTION (abind_1.4-8.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:10Z"
+      },
+      {
+        "evidence_id": "EV-002",
+        "metric": "description.version",
+        "value": "1.4-8",
+        "source": "local tarball DESCRIPTION (abind_1.4-8.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:10Z"
+      },
+      {
+        "evidence_id": "EV-003",
+        "metric": "description.title",
+        "value": "Combine Multidimensional Arrays",
+        "source": "local tarball DESCRIPTION (abind_1.4-8.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:10Z"
+      },
+      {
+        "evidence_id": "EV-004",
+        "metric": "description.license",
+        "value": "MIT + file LICENSE",
+        "source": "local tarball DESCRIPTION (abind_1.4-8.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:10Z"
+      },
+      {
+        "evidence_id": "EV-005",
+        "metric": "description.maintainer",
+        "value": "Tony Plate <tplate@acm.org>",
+        "source": "local tarball DESCRIPTION (abind_1.4-8.tar.gz)",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:10Z"
+      },
+      {
+        "evidence_id": "EV-006",
+        "metric": "tarball.sha256",
+        "value": "264a051b523ceae1795a0879e7768949ea55c586ac8db0adf1f5ebeddd2623e1",
+        "source": "local sha256 of abind_1.4-8.tar.gz",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:10Z",
+        "unit": "sha256 hex"
+      },
+      {
+        "evidence_id": "EV-007",
+        "metric": "ingest.origin",
+        "value": "cran",
+        "source": "gateway ingest provenance",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:10Z"
+      },
+      {
+        "evidence_id": "EV-008",
+        "metric": "ingest.source_url",
+        "value": "https://cran.r-project.org/src/contrib/abind_1.4-8.tar.gz",
+        "source": "gateway ingest provenance",
+        "mode": "local",
+        "collected_at": "2026-09-02T22:21:10Z"
+      },
+      {
+        "evidence_id": "EV-009",
+        "metric": "cran.version",
+        "value": "1.4-8",
+        "source": "https://crandb.r-pkg.org/abind",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:10Z"
+      },
+      {
+        "evidence_id": "EV-010",
+        "metric": "cran.title",
+        "value": "Combine Multidimensional Arrays",
+        "source": "https://crandb.r-pkg.org/abind",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:10Z"
+      },
+      {
+        "evidence_id": "EV-011",
+        "metric": "cran.publication_date",
+        "value": "2024-09-08",
+        "source": "https://crandb.r-pkg.org/abind",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:10Z",
+        "note": "Date field of the current CRAN release."
+      },
+      {
+        "evidence_id": "EV-012",
+        "metric": "cran.maintainer",
+        "value": "Tony Plate <tplate@acm.org>",
+        "source": "https://crandb.r-pkg.org/abind",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:10Z"
+      },
+      {
+        "evidence_id": "EV-013",
+        "metric": "cran.license",
+        "value": "MIT + file LICENSE",
+        "source": "https://crandb.r-pkg.org/abind",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:10Z"
+      },
+      {
+        "evidence_id": "EV-014",
+        "metric": "cran.imports_count",
+        "value": 2,
+        "source": "https://crandb.r-pkg.org/abind",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:10Z",
+        "unit": "packages"
+      },
+      {
+        "evidence_id": "EV-015",
+        "metric": "downloads.last_month_total",
+        "value": 837295,
+        "source": "https://cranlogs.r-pkg.org/downloads/total/last-month/abind",
+        "mode": "network",
+        "collected_at": "2026-09-02T22:21:10Z",
+        "unit": "downloads",
+        "note": "window 2026-08-03..2026-09-01 (posit CRAN mirror logs)"
+      },
+      {
+        "evidence_id": "EV-016",
+        "metric": "riskmetric.overall_score",
+        "value": 0.6211,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z",
+        "note": "summarize_scores weighted mean, 0=low risk 1=high"
+      },
+      {
+        "evidence_id": "EV-017",
+        "metric": "riskmetric.score.dependencies",
+        "value": 0.7311,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-018",
+        "metric": "riskmetric.score.downloads_1yr",
+        "value": 0.9838,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-019",
+        "metric": "riskmetric.score.export_help",
+        "value": 0.8,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-020",
+        "metric": "riskmetric.score.exported_namespace",
+        "value": 0.6662,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-021",
+        "metric": "riskmetric.score.has_bug_reports_url",
+        "value": 0,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-022",
+        "metric": "riskmetric.score.has_examples",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-023",
+        "metric": "riskmetric.score.has_maintainer",
+        "value": 1,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-024",
+        "metric": "riskmetric.score.has_news",
+        "value": 0,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-025",
+        "metric": "riskmetric.score.has_source_control",
+        "value": 0,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-026",
+        "metric": "riskmetric.score.has_vignettes",
+        "value": 0,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-027",
+        "metric": "riskmetric.score.has_website",
+        "value": 0,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-028",
+        "metric": "riskmetric.score.news_current",
+        "value": 0,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-029",
+        "metric": "riskmetric.score.reverse_dependencies",
+        "value": 0.9996,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-030",
+        "metric": "riskmetric.score.size_codebase",
+        "value": 0.26,
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z",
+        "note": "0=low risk 1=high; null = not measurable"
+      },
+      {
+        "evidence_id": "EV-031",
+        "metric": "riskmetric.raw.bugs_status",
+        "value": "[assessment error: unknown]",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z"
+      },
+      {
+        "evidence_id": "EV-032",
+        "metric": "riskmetric.raw.downloads_1yr",
+        "value": "9085666",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z"
+      },
+      {
+        "evidence_id": "EV-033",
+        "metric": "riskmetric.raw.has_bug_reports_url",
+        "value": "0",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z"
+      },
+      {
+        "evidence_id": "EV-034",
+        "metric": "riskmetric.raw.has_maintainer",
+        "value": "Tony Plate <tplate@acm.org>",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z"
+      },
+      {
+        "evidence_id": "EV-035",
+        "metric": "riskmetric.raw.has_news",
+        "value": "0",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z"
+      },
+      {
+        "evidence_id": "EV-036",
+        "metric": "riskmetric.raw.has_vignettes",
+        "value": "0",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z"
+      },
+      {
+        "evidence_id": "EV-037",
+        "metric": "riskmetric.raw.license",
+        "value": "MIT + file LICENSE",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z"
+      },
+      {
+        "evidence_id": "EV-038",
+        "metric": "riskmetric.raw.size_codebase",
+        "value": "427",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z"
+      },
+      {
+        "evidence_id": "EV-039",
+        "metric": "riskmetric.excluded_metrics",
+        "value": "assess_covr_coverage, assess_r_cmd_check",
+        "source": "riskmetric 0.2.7 run via gateway r_adapter (R version 4.6.0 (2026-04-24 ucrt))",
+        "mode": "riskmetric",
+        "collected_at": "2026-09-02T22:21:10Z",
+        "note": "code-executing metrics disabled by policy; assessed package code was not executed"
+      }
+    ]
+  },
+  "cached_at": "2026-09-02T22:21:11Z"
+}

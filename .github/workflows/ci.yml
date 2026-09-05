@@ -1,0 +1,45 @@
+# CI for the R Package Validation Gateway.
+# Ports 1:1 to any CI runner: the steps are plain shell + python, no
+# GitHub-specific logic beyond checkout/setup-python.
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  plain-runner:
+    # PRIMARY: no Docker required. Unit tests and the offline regression are
+    # network/R-free by design (pdflatex-dependent test self-skips).
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Syntax check (stdlib compileall; no lint deps)
+        run: python -m compileall -q gateway run.py tests
+      - name: Unit tests (offline-capable)
+        run: python -m unittest discover -s tests
+      - name: Offline regression (deterministic replay)
+        run: python tests/regression/run_regression.py --offline
+      - name: Red-line scan (vendored copy; identical patterns to governance)
+        run: bash tools/redline_scan.sh .
+
+  container:
+    # EXPERIMENTAL: builds the Phase 4 image and runs the same checks inside
+    # it. Marked experimental because the Dockerfile was authored on a
+    # Docker-less workstation (docs/container_verification.md); promote to
+    # required after the first verified build.
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image
+        run: docker build -t rval-gateway:ci .
+      - name: Unit tests in-container
+        run: docker run --rm rval-gateway:ci python3 -m unittest discover -s tests
+      - name: Offline regression in-container
+        run: docker run --rm rval-gateway:ci python3 tests/regression/run_regression.py --offline
+      - name: Red-line scan in-container
+        run: docker run --rm rval-gateway:ci bash tools/redline_scan.sh .

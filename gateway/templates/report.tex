@@ -1,0 +1,95 @@
+\documentclass[10pt]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\pagestyle{fancy}
+\fancyhead[L]{\small R Package Validation Report --- Tier 1 Screening}
+\fancyhead[R]{\small {{GENERATED_AT}}}
+\begin{document}
+
+\begin{center}
+{\Large\bfseries R Package Validation Report --- Tier 1 Screening}\\[4pt]
+{\large {{PKG_NAME}} {{PKG_VERSION}}}
+\end{center}
+
+\begin{tabular}{@{}p{4cm}p{11cm}@{}}
+\textbf{Package} & {{PKG_NAME}} \\
+\textbf{Version} & {{PKG_VERSION}} [{{PKG_VERSION_EV}}] \\
+\textbf{Origin} & {{ORIGIN}} [{{ORIGIN_EV}}] \\
+\textbf{Tarball sha256} & {\footnotesize {{SHA256}}} [{{SHA256_EV}}] \\
+\textbf{Intended-use tier} & {{TIER}} \\
+\textbf{Report generated (UTC)} & {{GENERATED_AT}} \\
+\end{tabular}
+
+\section*{Decision}
+\begin{center}
+{\large\bfseries {{DECISION}}} --- overall risk score {{OVERALL_SCORE}} [{{OVERALL_EV}}]\\
+{\small 0 = low risk, 1 = high; config v{{CONFIG_VERSION}}}
+\end{center}
+
+\textbf{Rules evaluated} (fired or not, with inputs and thresholds):
+
+{{RULES_TABLE}}
+
+\section*{Conditions}
+{{CONDITIONS_BLOCK}}
+
+\section*{Per-Metric Breakdown (\{riskmetric\})}
+{{METRIC_TABLE}}
+
+\section*{Scoring Strategy \& Category Subscores}
+{{SCORING_STRATEGY}}
+
+\section*{Classification \& Sign-off}
+{{CLASSIFICATION_BLOCK}}
+
+\emph{Risk classification: PENDING HUMAN REVIEW --- this tool does not classify.}\\
+\emph{Sign-off: PENDING HUMAN REVIEW --- machine-generated screening output;
+human QA sign-off pending. This tool never signs.}
+
+\section*{Evidence Register}
+{\footnotesize
+\begin{longtable}{@{}p{1.6cm}p{4.6cm}p{5.2cm}p{4.2cm}@{}}
+\toprule
+\textbf{ID} & \textbf{Metric} & \textbf{Value} & \textbf{Mode} \\
+\midrule
+\endhead
+{{EVIDENCE_ROWS}}
+\bottomrule
+\end{longtable}
+}
+
+\section*{Annex: System Information}
+{\footnotesize
+Generator: rval-gateway {{TOOL_VERSION}} (Python stdlib);
+{{R_VERSION}}; \{riskmetric\} {{RISKMETRIC_VERSION}};
+decision config v{{CONFIG_VERSION}} (sha256 {{CONFIG_SHA256}});
+evidence collection mode: {{COLLECTION_MODE}}.
+
+{{SYSTEM_INFO}}
+}
+
+\section*{Approval Timeline}
+Audit-chain events for this package (assessment $\rightarrow$ electronic
+signature $\rightarrow$ repository publish), in chain order; details carry
+the sha256 record-hash prefix of each tamper-evident audit record.
+
+{{TIMELINE_BLOCK}}
+
+\vspace{8pt}
+{\footnotesize
+\textbf{Provenance.} Generator: rval-gateway {{TOOL_VERSION}} (Python stdlib).
+Scores computed by an R subprocess: {{R_VERSION}}, \{riskmetric\} {{RISKMETRIC_VERSION}}
+(two-process pattern; code-executing metrics excluded --- assessed package code
+was not executed). Decision config v{{CONFIG_VERSION}} (sha256 {{CONFIG_SHA256_SHORT}}).
+Evidence collection mode: {{COLLECTION_MODE}}. Hard rule: no statement without an
+evidence ID; sections lacking evidence are suppressed. Tier-1 screening output
+under a two-tier strategy; metrics inform a qualified human's assessment and are
+not a proof of correctness.
+}
+\end{document}
